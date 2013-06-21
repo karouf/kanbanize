@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Kanbanize::VERSION
   gem.authors       = ["Renaud Martinet"]
   gem.email         = ["karouf@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Ruby wrapper around the Kanbanize API}
+  gem.summary       = %q{See http://kanbanize.com/ctrl_integration for API information}
+  gem.homepage      = "https://github.com/karouf/kanbanize"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
