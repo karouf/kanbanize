@@ -13,24 +13,26 @@ describe Kanbanize::API do
     Kanbanize::API.default_options[:format].must_equal :json
   end
 
-  describe 'initialize' do
+  describe '#initialize' do
+
+    subject { Kanbanize::API.new(KANBANIZE_API_KEY) }
+
     it "sets the 'apikey' HTTP header with the API key submitted" do
-      api = Kanbanize::API.new('testapikey')
-      api.class.default_options[:headers]['apikey'].must_equal 'testapikey'
+      subject.class.default_options[:headers]['apikey'].must_equal 'testapikey'
     end
 
     it 'uses http_proxy env var to set the proxy to use' do
       ENV['http_proxy'] = "http://localhost:8080"
-      api = Kanbanize::API.new('testapikey')
-      api.class.default_options[:http_proxyaddr].must_equal 'localhost'
-      api.class.default_options[:http_proxyport].must_equal 8080
+
+      subject.class.default_options[:http_proxyaddr].must_equal 'localhost'
+      subject.class.default_options[:http_proxyport].must_equal 8080
     end
 
     it 'uses no proxy if http_proxy env var is not set' do
       ENV.delete('http_proxy')
-      api = Kanbanize::API.new('testapikey')
-      api.class.default_options[:http_proxyaddr].must_be_nil
-      api.class.default_options[:http_proxyport].must_be_nil
+
+      subject.class.default_options[:http_proxyaddr].must_be_nil
+      subject.class.default_options[:http_proxyport].must_be_nil
     end
   end
 
