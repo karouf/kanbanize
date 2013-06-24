@@ -7,8 +7,8 @@ describe Kanbanize::API do
     Kanbanize::API.base_uri.must_equal 'http://kanbanize.com/index.php/api/kanbanize'
   end
 
-  it 'parses the API reponses as XML' do
-    Kanbanize::API.default_options[:format].must_equal :xml
+  it 'parses the API reponses as JSON' do
+    Kanbanize::API.default_options[:format].must_equal :json
   end
 
   describe 'initialize' do
