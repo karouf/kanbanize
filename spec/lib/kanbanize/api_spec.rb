@@ -45,26 +45,24 @@ describe Kanbanize::API do
       VCR.eject_cassette
     end
 
-    subject { Kanbanize::API.new(KANBANIZE_API_KEY) }
+    subject { Kanbanize::API.new(KANBANIZE_API_KEY).get_projects_and_boards }
 
     it 'returns a hash' do
-      subject.get_projects_and_boards.must_be_instance_of Hash
+      subject.must_be_instance_of Hash
     end
 
     it 'returns all the projects' do
-      hash = subject.get_projects_and_boards
-      hash['projects'].must_be_instance_of Array
-      hash['projects'].count.must_equal 1
-      hash['projects'][0]['id'].to_i.must_equal 1
-      hash['projects'][0]['name'].must_equal 'My First Kanban Project'
+      subject['projects'].must_be_instance_of Array
+      subject['projects'].count.must_equal 1
+      subject['projects'][0]['id'].to_i.must_equal 1
+      subject['projects'][0]['name'].must_equal 'My First Kanban Project'
     end
 
     it 'returns all the boards' do
-      hash = subject.get_projects_and_boards
-      hash['projects'][0]['boards'].must_be_instance_of Array
-      hash['projects'][0]['boards'].count.must_equal 2
-      hash['projects'][0]['boards'][0]['id'].to_i.must_equal 3
-      hash['projects'][0]['boards'][0]['name'].must_equal 'Test'
+      subject['projects'][0]['boards'].must_be_instance_of Array
+      subject['projects'][0]['boards'].count.must_equal 2
+      subject['projects'][0]['boards'][0]['id'].to_i.must_equal 3
+      subject['projects'][0]['boards'][0]['name'].must_equal 'Test'
     end
   end
 
