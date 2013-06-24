@@ -28,5 +28,9 @@ module Kanbanize
     def get_board_structure(board_id)
       self.class.post("/get_board_structure/boardid/#{board_id}/format/json")
     end
+
+    def get_board_settings(board_id)
+      self.class.post("/get_board_settings/boardid/#{board_id}/format/json")
+    end
   end
 end

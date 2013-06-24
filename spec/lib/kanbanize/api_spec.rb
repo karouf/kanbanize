@@ -95,5 +95,39 @@ describe Kanbanize::API do
       subject['lanes'][0]['color'].must_equal '#d99f9f'
     end
   end
+
+  describe '#get_board_settings' do
+    before do
+      VCR.insert_cassette 'get_board_settings', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    subject { Kanbanize::API.new(KANBANIZE_API_KEY).get_board_settings(2) }
+
+    it 'returns a hash' do
+      subject.must_be_instance_of Hash
+    end
+
+    it 'returns the usernames of the board members' do
+      subject['usernames'].must_be_instance_of Array
+      subject['usernames'].count.must_equal 1
+      subject['usernames'][0].must_equal 'karouf'
+    end
+
+    it 'returns the names of the templates available to this board' do
+      subject['templates'].must_be_instance_of Array
+      subject['templates'].count.must_equal 3
+      subject['templates'][0].must_equal 'Bug'
+    end
+
+    it 'returns the names of the types available to this board' do
+      subject['types'].must_be_instance_of Array
+      subject['types'].count.must_equal 3
+      subject['types'][1].must_equal 'Feature request'
+    end
+  end
 end
 
