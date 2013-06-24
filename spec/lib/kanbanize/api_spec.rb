@@ -65,5 +65,35 @@ describe Kanbanize::API do
       hash['projects'][0]['boards'][0]['name'].must_equal 'Test'
     end
   end
+
+  describe '#get_board_structure' do
+    before do
+      VCR.insert_cassette 'get_board_structure', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    subject { Kanbanize::API.new(KANBANIZE_API_KEY).get_board_structure(2) }
+
+    it 'returns a hash' do
+      subject.must_be_instance_of Hash
+    end
+
+    it 'returns all the columns of the board' do
+      subject['columns'].must_be_instance_of Array
+      subject['columns'].count.must_equal 3
+      subject['columns'][0]['position'].to_i.must_equal 0
+      subject['columns'][0]['lcname'].must_equal 'Suivants'
+    end
+
+    it 'returns all the lanes of the board' do
+      subject['lanes'].must_be_instance_of Array
+      subject['lanes'][0].count.must_equal 3
+      subject['lanes'][0]['lcname'].must_equal 'Urgent'
+      subject['lanes'][0]['color'].must_equal '#d99f9f'
+    end
+  end
 end
 
