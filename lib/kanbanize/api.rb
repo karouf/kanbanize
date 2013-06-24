@@ -20,5 +20,9 @@ module Kanbanize
         self.class.http_proxy host, port.to_i
       end
     end
+
+    def get_projects_and_boards
+      self.class.post('/get_projects_and_boards/format/json')
+    end
   end
 end
