@@ -17,10 +17,7 @@ module Kanbanize
     end
 
     def login(email, pass)
-      email = URI.escape(email, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
-      pass = URI.escape(pass, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
-
-      hash = self.class.post("/login/email/#{email}/pass/#{pass}/format/json")
+      hash = self.class.post("/login/email/#{uri_encode(email)}/pass/#{uri_encode(pass)}/format/json")
 
       @apikey = hash['apikey']
 
@@ -64,6 +61,10 @@ module Kanbanize
         host, port = proxy.split(':')
         self.class.http_proxy host, port.to_i
       end
+    end
+
+    def uri_encode(string)
+      URI.escape(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
     end
   end
 end
