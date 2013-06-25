@@ -12,14 +12,14 @@ module Kanbanize
     attr_reader :apikey
 
     def initialize(apikey = nil )
-      @apikey = apikey if apikey
+      set_apikey(apikey)
       set_proxy
     end
 
     def login(email, pass)
       hash = self.class.post("/login/email/#{uri_encode(email)}/pass/#{uri_encode(pass)}/format/json")
 
-      @apikey = hash['apikey']
+      set_apikey(hash['apikey'])
 
       return hash
     end
@@ -65,6 +65,10 @@ module Kanbanize
 
     def uri_encode(string)
       URI.escape(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    end
+
+    def set_apikey(apikey)
+      @apikey = apikey if apikey
     end
   end
 end
