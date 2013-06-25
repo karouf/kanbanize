@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/login/email/test@testers.com/pass/test/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 14:18:15 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=4d5979a285a19afd804438431b678d69; expires=Tue, 25-Jun-2013 22:18:15
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%227d6e2546ec0f1381388670283bb9f7ba%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372169895%3B%7D2a35139e074a7448cd3a46368a4ea64e;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"email":"test@testers.com","username":"test","realname":"Testy McTest","companyname":"Testers
+        Inc.","timezone":"+00:00","apikey":"testapikey"}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 14:18:46 GMT
+recorded_with: VCR 2.5.0

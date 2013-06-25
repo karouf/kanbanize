@@ -14,11 +14,18 @@ describe Kanbanize::API do
   end
 
   describe '#initialize' do
+    before do
+      @http_proxy = ENV['http_proxy']
+    end
+
+    after do
+      ENV['http_proxy'] = @http_proxy
+    end
 
     subject { Kanbanize::API.new(KANBANIZE_API_KEY) }
 
     it "sets the 'apikey' HTTP header with the API key submitted" do
-      subject.class.default_options[:headers]['apikey'].must_equal 'testapikey'
+      subject.apikey.must_equal 'testapikey'
     end
 
     it 'uses http_proxy env var to set the proxy to use' do
@@ -34,6 +41,58 @@ describe Kanbanize::API do
       subject.class.default_options[:http_proxyaddr].must_be_nil
       subject.class.default_options[:http_proxyport].must_be_nil
     end
+  end
+
+  describe '#login' do
+    before do
+      VCR.insert_cassette 'login', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    subject { Kanbanize::API.new }
+
+    let(:login) do
+      email = 'test@testers.com'
+      pass  = 'test'
+      subject.login(email, pass)
+    end
+
+    it 'returns a hash' do
+      login.must_be_instance_of Hash
+    end
+
+    it 'returns your email address' do
+      login['email'].must_equal 'test@testers.com'
+    end
+
+    it 'returns your username' do
+      login['username'].must_equal 'test'
+    end
+
+    it 'returns your real name' do
+      login['realname'].must_equal 'Testy McTest'
+    end
+
+    it 'returns your company name' do
+      login['companyname'].must_equal 'Testers Inc.'
+    end
+
+    it 'returns your timezone' do
+      login['timezone'].must_equal '+00:00'
+    end
+
+    it 'returns your API key' do
+      login['apikey'].must_equal 'testapikey'
+    end
+
+    it 'sets the API key to be used' do
+      login
+      subject.apikey.must_equal 'testapikey'
+    end
+
   end
 
   describe '#get_projects_and_boards' do

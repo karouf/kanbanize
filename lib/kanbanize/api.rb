@@ -1,4 +1,5 @@
 require 'httparty'
+require 'uri'
 
 module Kanbanize
   class API
@@ -8,8 +9,10 @@ module Kanbanize
 
     format :json
 
-    def initialize(apikey)
-      self.class.headers 'apikey' => apikey
+    attr_reader :apikey
+
+    def initialize(apikey = nil )
+      @apikey = apikey if apikey
 
       if ENV['http_proxy'].nil?
         self.class.http_proxy
@@ -21,16 +24,27 @@ module Kanbanize
       end
     end
 
+    def login(email, pass)
+      email = URI.escape(email, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+      pass = URI.escape(pass, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+
+      hash = self.class.post("/login/email/#{email}/pass/#{pass}/format/json")
+
+      @apikey = hash['apikey']
+
+      return hash
+    end
+
     def get_projects_and_boards
-      self.class.post('/get_projects_and_boards/format/json')
+      post('/get_projects_and_boards/format/json')
     end
 
     def get_board_structure(board_id)
-      self.class.post("/get_board_structure/boardid/#{board_id}/format/json")
+      post("/get_board_structure/boardid/#{board_id}/format/json")
     end
 
     def get_board_settings(board_id)
-      self.class.post("/get_board_settings/boardid/#{board_id}/format/json")
+      post("/get_board_settings/boardid/#{board_id}/format/json")
     end
 
     def get_board_activities(board_id, from, to, options = {})
@@ -43,7 +57,12 @@ module Kanbanize
 
       url += "/format/json"
 
-      self.class.post(url)
+      post(url)
+    end
+
+    private
+    def post(uri)
+      self.class.post(uri, :headers => {'apikey' => @apikey})
     end
   end
 end
