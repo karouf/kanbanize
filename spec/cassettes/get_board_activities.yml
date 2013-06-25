@@ -1,0 +1,237 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_activities/boardid/2/fromdate/2013-06-23/todate/2013-06-26/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 08:52:12 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=b8860b96595ef41d9b8ed93331f24b7b; expires=Tue, 25-Jun-2013 16:52:12
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22688397a279b575e99b8c16e79200972c%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372150332%3B%7D6ca0873ab75ee4f3402ce2e60bd00ee4;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"allactivities":38,"page":1,"activities":[{"author":"karouf","event":"Comment
+        added","text":"<em>''Another comment.''<\/em>","date":"2013-06-25 09:04:13","taskid":"7"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test30<\/em>","date":"2013-06-25 08:41:59","taskid":"41"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test29<\/em>","date":"2013-06-25 08:41:57","taskid":"40"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test28<\/em>","date":"2013-06-25 08:41:54","taskid":"39"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test27<\/em>","date":"2013-06-25 08:41:49","taskid":"38"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test26<\/em>","date":"2013-06-25 08:41:46","taskid":"37"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test25<\/em>","date":"2013-06-25 08:41:43","taskid":"36"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test24<\/em>","date":"2013-06-25 08:41:41","taskid":"35"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test23<\/em>","date":"2013-06-25 08:41:39","taskid":"34"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test22<\/em>","date":"2013-06-25 08:41:37","taskid":"33"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test21<\/em>","date":"2013-06-25 08:41:34","taskid":"32"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test20<\/em>","date":"2013-06-25 08:41:32","taskid":"31"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test19<\/em>","date":"2013-06-25 08:41:30","taskid":"30"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test18<\/em>","date":"2013-06-25 08:41:28","taskid":"29"},{"author":"tintin","event":"Task
+        created","text":"Task : <em>Test17<\/em>","date":"2013-06-25 08:41:26","taskid":"28"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test16<\/em>","date":"2013-06-25 08:41:23","taskid":"27"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test15<\/em>","date":"2013-06-25 08:41:21","taskid":"26"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test14<\/em>","date":"2013-06-25 08:41:19","taskid":"25"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test13<\/em>","date":"2013-06-25 08:41:17","taskid":"24"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test12<\/em>","date":"2013-06-25 08:41:15","taskid":"23"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test11<\/em>","date":"2013-06-25 08:41:13","taskid":"22"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test10<\/em>","date":"2013-06-25 08:41:10","taskid":"21"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test9<\/em>","date":"2013-06-25 08:41:08","taskid":"20"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test8<\/em>","date":"2013-06-25 08:41:05","taskid":"19"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test7<\/em>","date":"2013-06-25 08:41:02","taskid":"18"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test6<\/em>","date":"2013-06-25 08:40:59","taskid":"17"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test5<\/em>","date":"2013-06-25 08:40:55","taskid":"16"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test4<\/em>","date":"2013-06-25 08:40:51","taskid":"15"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test3<\/em>","date":"2013-06-25 08:40:46","taskid":"14"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test2<\/em>","date":"2013-06-25 08:40:36","taskid":"13"}]}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 08:52:44 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_activities/boardid/2/fromdate/2013-06-23/todate/2013-06-26/author/tintin/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 08:52:13 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=d5079a85e15d21e2b8cb960dbf616626; expires=Tue, 25-Jun-2013 16:52:13
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2284f082398dc5ce1a37740315e308fd3c%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372150333%3B%7D7b485828aae40091fa910c239b42dd2e;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"allactivities":2,"page":1,"activities":[{"author":"tintin","event":"Comment
+        added","text":"Task : <em>Test2<\/em>","date":"2013-06-25 08:40:36","taskid":"7"},{"author":"tintin","event":"Task
+        created","text":"Task : <em>Test2<\/em>","date":"2013-06-25 08:40:36","taskid":"7"}]}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 08:52:47 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_activities/boardid/2/fromdate/2013-06-23/todate/2013-06-26/resultsperpage/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 08:52:15 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=327f10e555a3f7b3d8a82b0731c65768; expires=Tue, 25-Jun-2013 16:52:15
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%229d64652a6f86ce7fc00508cb86c99bc0%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372150335%3B%7D24a889a277778bfe50d1cbcdfb0ea11b;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"allactivities":38,"page":1,"activities":[{"author":"karouf","event":"Comment
+        added","text":"<em>''Another comment.''<\/em>","date":"2013-06-25 09:04:13","taskid":"7"},{"author":"tintin","event":"Task
+        created","text":"Task : <em>Test30<\/em>","date":"2013-06-25 08:41:59","taskid":"41"}]}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 08:52:49 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_activities/boardid/2/fromdate/2013-06-23/todate/2013-06-26/page/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 08:52:18 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=b6a503cb24850263ee28c9df55afe851; expires=Tue, 25-Jun-2013 16:52:18
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%220aec387cdbe244665c06765f88b428e8%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372150338%3B%7D5be2a3b051df63400262bce4ae620eb4;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"allactivities":38,"page":2,"activities":[{"author":"karouf","event":"Task
+        created","text":"Task : <em>Test1<\/em>","date":"2013-06-25 08:40:30","taskid":"12"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Aloha<\/em>","date":"2013-06-25 08:40:18","taskid":"11"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Love this game<\/em>","date":"2013-06-24 17:15:13","taskid":"10"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>And again<\/em>","date":"2013-06-24 17:14:59","taskid":"9"},{"author":"karouf","event":"Task
+        created","text":"Task : <em>Another task<\/em>","date":"2013-06-24 17:14:53","taskid":"8"},{"author":"karouf","event":"Comment
+        added","text":"<em>''Test comment''<\/em>","date":"2013-06-24 17:14:20","taskid":"7"},{"author":"karouf","event":"Assignee
+        changed","text":"New assignee: <em>karouf<\/em>","date":"2013-06-24 17:14:10","taskid":"7"},{"author":"tintin","event":"Task
+        created","text":"Task : <em>Write Api specs<\/em>","date":"2013-06-24 15:28:59","taskid":"7"}]}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 08:52:51 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_activities/boardid/2/fromdate/2013-06-23/todate/2013-06-26/eventtype/Comments/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 25 Jun 2013 09:10:27 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=f1d08b4083b79e614ab8e41312d34a63; expires=Tue, 25-Jun-2013 17:10:27
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22931dd9bb3bf4739f8f10e37d841df1da%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372151427%3B%7D25053056bdac628272fe6fbd7b18bb28;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"allactivities":2,"page":1,"activities":[{"author":"karouf","event":"Comment
+        added","text":"<em>''Another comment.''<\/em>","date":"2013-06-25 09:04:13","taskid":"7"},{"author":"tintin","event":"Comment
+        added","text":"<em>''Test comment''<\/em>","date":"2013-06-24 17:14:20","taskid":"7"}]}'
+    http_version: 
+  recorded_at: Tue, 25 Jun 2013 09:11:00 GMT
+recorded_with: VCR 2.5.0

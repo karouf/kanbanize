@@ -129,5 +129,301 @@ describe Kanbanize::API do
       subject['types'][1].must_equal 'Feature request'
     end
   end
+
+  describe '#get_board_activities' do
+    before do
+      VCR.insert_cassette 'get_board_activities', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    describe 'by default' do
+
+      subject do
+        board_id = 2
+        from = Date.new(2013, 06, 23)
+        to = Date.new(2013, 06, 26)
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_board_activities( board_id,
+                                                                    from,
+                                                                    to
+                                                                  )
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the total number of activities' do
+        subject['allactivities'].must_equal 38
+      end
+
+      it 'returns the first page' do
+        subject['page'].must_equal 1
+      end
+
+      it 'returns a max of 30 activities' do
+        subject['activities'].count.must_be :<=, 30
+      end
+
+      it 'returns the activities' do
+        subject['activities'].must_be_instance_of Array
+        subject['activities'][0]['author'].must_equal 'karouf'
+        subject['activities'][0]['event'].must_equal 'Comment added'
+        subject['activities'][0]['taskid'].to_i.must_equal 7
+      end
+
+      it 'returns the activities of all authors' do
+        authors = []
+        subject['activities'].each do |activity|
+          if !authors.include? activity['author']
+            authors << activity['author']
+          end
+        end
+        authors.count.must_be :>, 1
+      end
+
+      it 'returns all types of activities' do
+        events = []
+        subject['activities'].each do |activity|
+          if !events.include? activity['event']
+            events << activity['event']
+          end
+        end
+        events.count.must_be :>, 1
+      end
+    end
+
+    describe 'with the page specified' do
+
+      subject do
+        board_id = 2
+        from = Date.new(2013, 06, 23)
+        to = Date.new(2013, 06, 26)
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_board_activities( board_id,
+                                                                    from,
+                                                                    to,
+                                                                    { :page => 2 }
+                                                                  )
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the total number of activities' do
+        subject['allactivities'].must_equal 38
+      end
+
+      it 'returns the specified page' do
+        subject['page'].must_equal 2
+      end
+
+      it 'returns a max of 30 activities' do
+        subject['activities'].count.must_be :<=, 30
+      end
+
+      it 'returns the activities' do
+        subject['activities'].must_be_instance_of Array
+        subject['activities'][0]['author'].must_equal 'karouf'
+        subject['activities'][0]['event'].must_equal 'Task created'
+        subject['activities'][0]['taskid'].to_i.must_equal 12
+      end
+
+      it 'returns the activities of all authors' do
+        authors = []
+        subject['activities'].each do |activity|
+          if !authors.include? activity['author']
+            authors << activity['author']
+          end
+        end
+        authors.count.must_be :>, 1
+      end
+
+      it 'returns all types of activities' do
+        events = []
+        subject['activities'].each do |activity|
+          if !events.include? activity['event']
+            events << activity['event']
+          end
+        end
+        events.count.must_be :>, 1
+      end
+    end
+
+    describe 'with the number of results per page specified' do
+
+      subject do
+        board_id = 2
+        from = Date.new(2013, 06, 23)
+        to = Date.new(2013, 06, 26)
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_board_activities( board_id,
+                                                                    from,
+                                                                    to,
+                                                                    { :results => 2 }
+                                                                  )
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the total number of activities' do
+        subject['allactivities'].must_equal 38
+      end
+
+      it 'returns the first page' do
+        subject['page'].must_equal 1
+      end
+
+      it 'returns a max of 2 activities' do
+        subject['activities'].count.must_be :<=, 2
+      end
+
+      it 'returns the activities' do
+        subject['activities'].must_be_instance_of Array
+        subject['activities'][0]['author'].must_equal 'karouf'
+        subject['activities'][0]['event'].must_equal 'Comment added'
+        subject['activities'][0]['taskid'].to_i.must_equal 7
+      end
+
+      it 'returns the activities of all authors' do
+        authors = []
+        subject['activities'].each do |activity|
+          if !authors.include? activity['author']
+            authors << activity['author']
+          end
+        end
+        authors.count.must_be :>, 1
+      end
+
+      it 'returns all types of activities' do
+        events = []
+        subject['activities'].each do |activity|
+          if !events.include? activity['event']
+            events << activity['event']
+          end
+        end
+        events.count.must_be :>, 1
+      end
+    end
+
+    describe 'with the author specified' do
+
+      subject do
+        board_id = 2
+        from = Date.new(2013, 06, 23)
+        to = Date.new(2013, 06, 26)
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_board_activities( board_id,
+                                                                    from,
+                                                                    to,
+                                                                    { :author => 'tintin' }
+                                                                  )
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the total number of activities' do
+        subject['allactivities'].must_equal 2
+      end
+
+      it 'returns the first page' do
+        subject['page'].must_equal 1
+      end
+
+      it 'returns a max of 30 activities' do
+        subject['activities'].count.must_be :<=, 30
+      end
+
+      it 'returns the activities' do
+        subject['activities'].must_be_instance_of Array
+        subject['activities'][0]['author'].must_equal 'tintin'
+        subject['activities'][0]['event'].must_equal 'Comment added'
+        subject['activities'][0]['taskid'].to_i.must_equal 7
+      end
+
+      it 'returns the activities of "tintin"' do
+        authors = []
+        subject['activities'].each do |activity|
+          if !authors.include? activity['author']
+            authors << activity['author']
+          end
+        end
+        authors.count.must_equal 1
+        authors.first.must_equal 'tintin'
+      end
+
+      it 'returns all types of activities' do
+        events = []
+        subject['activities'].each do |activity|
+          if !events.include? activity['event']
+            events << activity['event']
+          end
+        end
+        events.count.must_be :>, 1
+      end
+    end
+
+    describe 'with the event type specified' do
+
+      subject do
+        board_id = 2
+        from = Date.new(2013, 06, 23)
+        to = Date.new(2013, 06, 26)
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_board_activities( board_id,
+                                                                    from,
+                                                                    to,
+                                                                    { :events => 'Comments' }
+                                                                  )
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the total number of activities' do
+        subject['allactivities'].must_equal 2
+      end
+
+      it 'returns the first page' do
+        subject['page'].must_equal 1
+      end
+
+      it 'returns a max of 30 activities' do
+        subject['activities'].count.must_be :<=, 30
+      end
+
+      it 'returns the activities' do
+        subject['activities'].must_be_instance_of Array
+        subject['activities'][0]['author'].must_equal 'karouf'
+        subject['activities'][0]['event'].must_equal 'Comment added'
+        subject['activities'][0]['taskid'].to_i.must_equal 7
+      end
+
+      it 'returns the activities of all authors' do
+        authors = []
+        subject['activities'].each do |activity|
+          if !authors.include? activity['author']
+            authors << activity['author']
+          end
+        end
+        authors.count.must_be :>, 1
+      end
+
+      it 'returns only activities related to comments' do
+        events = []
+        subject['activities'].each do |activity|
+          if !events.include? activity['event']
+            events << activity['event']
+          end
+        end
+        events.count.must_equal 1
+        events.first.must_equal 'Comment added'
+      end
+    end
+  end
 end
 
