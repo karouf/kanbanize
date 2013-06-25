@@ -13,15 +13,7 @@ module Kanbanize
 
     def initialize(apikey = nil )
       @apikey = apikey if apikey
-
-      if ENV['http_proxy'].nil?
-        self.class.http_proxy
-      else
-        proxy = ENV['http_proxy'].match(/^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)[4]
-
-        host, port = proxy.split(':')
-        self.class.http_proxy host, port.to_i
-      end
+      set_proxy
     end
 
     def login(email, pass)
@@ -61,6 +53,17 @@ module Kanbanize
     private
     def post(uri)
       self.class.post(uri, :headers => {'apikey' => @apikey})
+    end
+
+    def set_proxy
+      if ENV['http_proxy'].nil?
+        self.class.http_proxy
+      else
+        proxy = ENV['http_proxy'].match(/^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/)[4]
+
+        host, port = proxy.split(':')
+        self.class.http_proxy host, port.to_i
+      end
     end
   end
 end
