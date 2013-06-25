@@ -48,16 +48,14 @@ module Kanbanize
     end
 
     def get_board_activities(board_id, from, to, options = {})
-      url = "/get_board_activities/boardid/#{board_id}/fromdate/#{from}/todate/#{to}"
+      uri = "/get_board_activities/boardid/#{board_id}/fromdate/#{from}/todate/#{to}"
+      uri += "/page/#{options[:page]}" if options[:page]
+      uri += "/resultsperpage/#{options[:results]}" if options[:results]
+      uri += "/author/#{options[:author]}" if options[:author]
+      uri += "/eventtype/#{options[:events]}" if options[:events]
+      uri += "/format/json"
 
-      url += "/page/#{options[:page]}" if options[:page]
-      url += "/resultsperpage/#{options[:results]}" if options[:results]
-      url += "/author/#{options[:author]}" if options[:author]
-      url += "/eventtype/#{options[:events]}" if options[:events]
-
-      url += "/format/json"
-
-      post(url)
+      post(uri)
     end
 
     private
