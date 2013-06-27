@@ -67,6 +67,15 @@ module Kanbanize
       post(uri)
     end
 
+    def get_task_details(board_id, task_id, options = {})
+      uri = "/get_task_details/boardid/#{board_id}/taskid/#{task_id}"
+      uri += '/history/yes' if options[:history]
+      uri += "/event/#{options[:event]}" if options[:event]
+      uri += '/format/json'
+
+      post(uri)
+    end
+
     private
     def post(uri)
       self.class.post(uri, :headers => {'apikey' => @apikey})

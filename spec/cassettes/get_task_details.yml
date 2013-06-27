@@ -1,0 +1,350 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:00:24 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=efe4c9d3e186651f6b7aa167fcd73e80; expires=Fri, 28-Jun-2013 00:00:24
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22c04d2604d7ea3371648d6e12575bd782%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372348824%3B%7Db67d47aa8181d42774c6802b36021650;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"taskid":"7","title":"Write Api specs","description":"","type":"Feature
+        request","assignee":"karouf","subtasks":"1","subtaskscomplete":"0","color":"#b3b340","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"leadtime":6,"blocked":"0","blockedreason":null,"columnname":"En
+        cours","lanename":"Standard","subtaskdetails":[{"taskid":"42","assignee":"None","title":"Some
+        stuff to do","completiondate":null}],"columnid":"progress_2","laneid":"7","columnpath":"En
+        cours","loggedtime":0}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:00:59 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:04:26 GMT
+      Content-Type:
+      - application/xml
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=a28a115f30a4075c4222436856aab907; expires=Fri, 28-Jun-2013 00:04:26
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%221bd710bc4785bdd5125103a94c17616b%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372349066%3B%7D3493098e44ec70e930c4503fe3a888b4;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" encoding="utf-8"?>
+
+        <xml><taskid>7</taskid><title>Write Api specs</title><description></description><type>Feature
+        request</type><assignee>karouf</assignee><subtasks>1</subtasks><subtaskscomplete>0</subtaskscomplete><color>#b3b340</color><priority>Average</priority><size></size><deadline></deadline><deadlineoriginalformat></deadlineoriginalformat><extlink></extlink><tags></tags><leadtime>6</leadtime><blocked>0</blocked><blockedreason></blockedreason><columnname>En
+        cours</columnname><lanename>Standard</lanename><subtaskdetails><item><taskid>42</taskid><assignee>None</assignee><title>Some
+        stuff to do</title><completiondate></completiondate></item></subtaskdetails><columnid>progress_2</columnid><laneid>7</laneid><columnpath>En
+        cours</columnpath><loggedtime>0</loggedtime></xml>
+
+'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:04:59 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:04:27 GMT
+      Content-Type:
+      - application/xml
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=b094cc10c742e73c47bf911be92fb25c; expires=Fri, 28-Jun-2013 00:04:27
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%225e290cfba26e80d5b1a39806dd1cede8%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372349067%3B%7D4df2a3b037be706475207369286536f8;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" encoding="utf-8"?>
+
+        <xml><taskid>7</taskid><title>Write Api specs</title><description></description><type>Feature
+        request</type><assignee>karouf</assignee><subtasks>1</subtasks><subtaskscomplete>0</subtaskscomplete><color>#b3b340</color><priority>Average</priority><size></size><deadline></deadline><deadlineoriginalformat></deadlineoriginalformat><extlink></extlink><tags></tags><leadtime>6</leadtime><blocked>0</blocked><blockedreason></blockedreason><columnname>En
+        cours</columnname><lanename>Standard</lanename><subtaskdetails><item><taskid>42</taskid><assignee>None</assignee><title>Some
+        stuff to do</title><completiondate></completiondate></item></subtaskdetails><columnid>progress_2</columnid><laneid>7</laneid><columnpath>En
+        cours</columnpath><loggedtime>0</loggedtime><historydetails><item><eventtype>Unarchive</eventtype><historyevent>Task
+        unarchived</historyevent><details>Task: Test</details><author>karouf</author><entrydate>27
+        Jun 13, 10:02</entrydate><historyid>88</historyid></item><item><eventtype>Updates</eventtype><historyevent>Subtask  created</historyevent><details>Subtask
+        : Some stuff to do</details><author>karouf</author><entrydate>27 Jun 13, 09:52</entrydate><historyid>87</historyid></item><item><eventtype>Comments</eventtype><historyevent>Comment
+        added</historyevent><details>''Another comment.''</details><author>karouf</author><entrydate>25
+        Jun 13, 09:04</entrydate><historyid>86</historyid></item><item><eventtype>Comments</eventtype><historyevent>Comment
+        added</historyevent><details>''Test comment''</details><author>karouf</author><entrydate>24
+        Jun 13, 17:14</entrydate><historyid>51</historyid></item><item><eventtype>Updates</eventtype><historyevent>Assignee
+        changed</historyevent><details>New assignee: karouf</details><author>karouf</author><entrydate>24
+        Jun 13, 17:14</entrydate><historyid>50</historyid></item><item><eventtype>Updates</eventtype><historyevent>Task
+        created</historyevent><details>Task : Write Api specs</details><author>karouf</author><entrydate>24
+        Jun 13, 15:28</entrydate><historyid>49</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        archived</historyevent><details>Title Test</details><author>karouf</author><entrydate>13
+        Jun 13, 08:04</entrydate><historyid>45</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Archive'' to ''Fini''</details><author>karouf</author><entrydate>13
+        Jun 13, 08:02</entrydate><historyid>40</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Fini'' to ''Archive''</details><author>karouf</author><entrydate>10
+        Jun 13, 16:37</entrydate><historyid>35</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Requested'' to ''Done''</details><author>karouf</author><entrydate>10
+        Jun 13, 15:39</entrydate><historyid>5</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Backlog'' to ''Requested''</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>4</historyid></item><item><eventtype>Blocks</eventtype><historyevent>Task
+        unblocked</historyevent><details>Block reason was: R&amp;D</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>3</historyid></item><item><eventtype>Blocks</eventtype><historyevent>Task
+        blocked</historyevent><details>Block reason: R&amp;D</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>2</historyid></item><item><eventtype>Updates</eventtype><historyevent>Task
+        created</historyevent><details>Task : Test</details><author>karouf</author><entrydate>10
+        Jun 13, 15:33</entrydate><historyid>1</historyid></item></historydetails></xml>
+
+'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:04:59 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:04:49 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=3a408a32da369115dad98056acd28df3; expires=Fri, 28-Jun-2013 00:04:49
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22fb6c50b712bd7adffe1b655c60fd552a%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372349089%3B%7D4014bd3016bade76bd71f6a72f216913;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"taskid":"7","title":"Write Api specs","description":"","type":"Feature
+        request","assignee":"karouf","subtasks":"1","subtaskscomplete":"0","color":"#b3b340","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"leadtime":6,"blocked":"0","blockedreason":null,"columnname":"En
+        cours","lanename":"Standard","subtaskdetails":[{"taskid":"42","assignee":"None","title":"Some
+        stuff to do","completiondate":null}],"columnid":"progress_2","laneid":"7","columnpath":"En
+        cours","loggedtime":0,"historydetails":[{"eventtype":"Unarchive","historyevent":"Task
+        unarchived","details":"Task: Test","author":"karouf","entrydate":"27 Jun 13,
+        10:02","historyid":"88"},{"eventtype":"Updates","historyevent":"Subtask  created","details":"Subtask
+        : Some stuff to do","author":"karouf","entrydate":"27 Jun 13, 09:52","historyid":"87"},{"eventtype":"Comments","historyevent":"Comment
+        added","details":"''Another comment.''","author":"karouf","entrydate":"25
+        Jun 13, 09:04","historyid":"86"},{"eventtype":"Comments","historyevent":"Comment
+        added","details":"''Test comment''","author":"karouf","entrydate":"24 Jun
+        13, 17:14","historyid":"51"},{"eventtype":"Updates","historyevent":"Assignee
+        changed","details":"New assignee: karouf","author":"karouf","entrydate":"24
+        Jun 13, 17:14","historyid":"50"},{"eventtype":"Updates","historyevent":"Task
+        created","details":"Task : Write Api specs","author":"karouf","entrydate":"24
+        Jun 13, 15:28","historyid":"49"},{"eventtype":"Transitions","historyevent":"Task
+        archived","details":"Title Test","author":"karouf","entrydate":"13 Jun 13,
+        08:04","historyid":"45"},{"eventtype":"Transitions","historyevent":"Task moved","details":"From
+        ''Archive'' to ''Fini''","author":"karouf","entrydate":"13 Jun 13, 08:02","historyid":"40"},{"eventtype":"Transitions","historyevent":"Task
+        moved","details":"From ''Fini'' to ''Archive''","author":"karouf","entrydate":"10
+        Jun 13, 16:37","historyid":"35"},{"eventtype":"Transitions","historyevent":"Task
+        moved","details":"From ''Requested'' to ''Done''","author":"karouf","entrydate":"10
+        Jun 13, 15:39","historyid":"5"},{"eventtype":"Transitions","historyevent":"Task
+        moved","details":"From ''Backlog'' to ''Requested''","author":"karouf","entrydate":"10
+        Jun 13, 15:35","historyid":"4"},{"eventtype":"Blocks","historyevent":"Task
+        unblocked","details":"Block reason was: R&D","author":"karouf","entrydate":"10
+        Jun 13, 15:35","historyid":"3"},{"eventtype":"Blocks","historyevent":"Task
+        blocked","details":"Block reason: R&D","author":"karouf","entrydate":"10 Jun
+        13, 15:35","historyid":"2"},{"eventtype":"Updates","historyevent":"Task created","details":"Task
+        : Test","author":"karouf","entrydate":"10 Jun 13, 15:33","historyid":"1"}]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:05:23 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes/event//format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:08:33 GMT
+      Content-Type:
+      - application/xml
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=8a522258541e9a2a3e8468fbe0a58294; expires=Fri, 28-Jun-2013 00:08:33
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%223077ad6c97f5181d53f608e651f8e82f%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372349313%3B%7D7fc38e45408b57979ad6020e846c663a;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" encoding="utf-8"?>
+
+        <xml><taskid>7</taskid><title>Write Api specs</title><description></description><type>Feature
+        request</type><assignee>karouf</assignee><subtasks>1</subtasks><subtaskscomplete>0</subtaskscomplete><color>#b3b340</color><priority>Average</priority><size></size><deadline></deadline><deadlineoriginalformat></deadlineoriginalformat><extlink></extlink><tags></tags><leadtime>6</leadtime><blocked>0</blocked><blockedreason></blockedreason><columnname>En
+        cours</columnname><lanename>Standard</lanename><subtaskdetails><item><taskid>42</taskid><assignee>None</assignee><title>Some
+        stuff to do</title><completiondate></completiondate></item></subtaskdetails><columnid>progress_2</columnid><laneid>7</laneid><columnpath>En
+        cours</columnpath><loggedtime>0</loggedtime><historydetails><item><eventtype>Unarchive</eventtype><historyevent>Task
+        unarchived</historyevent><details>Task: Test</details><author>karouf</author><entrydate>27
+        Jun 13, 10:02</entrydate><historyid>88</historyid></item><item><eventtype>Updates</eventtype><historyevent>Subtask  created</historyevent><details>Subtask
+        : Some stuff to do</details><author>karouf</author><entrydate>27 Jun 13, 09:52</entrydate><historyid>87</historyid></item><item><eventtype>Comments</eventtype><historyevent>Comment
+        added</historyevent><details>''Another comment.''</details><author>karouf</author><entrydate>25
+        Jun 13, 09:04</entrydate><historyid>86</historyid></item><item><eventtype>Comments</eventtype><historyevent>Comment
+        added</historyevent><details>''Test comment''</details><author>karouf</author><entrydate>24
+        Jun 13, 17:14</entrydate><historyid>51</historyid></item><item><eventtype>Updates</eventtype><historyevent>Assignee
+        changed</historyevent><details>New assignee: karouf</details><author>karouf</author><entrydate>24
+        Jun 13, 17:14</entrydate><historyid>50</historyid></item><item><eventtype>Updates</eventtype><historyevent>Task
+        created</historyevent><details>Task : Write Api specs</details><author>karouf</author><entrydate>24
+        Jun 13, 15:28</entrydate><historyid>49</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        archived</historyevent><details>Title Test</details><author>karouf</author><entrydate>13
+        Jun 13, 08:04</entrydate><historyid>45</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Archive'' to ''Fini''</details><author>karouf</author><entrydate>13
+        Jun 13, 08:02</entrydate><historyid>40</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Fini'' to ''Archive''</details><author>karouf</author><entrydate>10
+        Jun 13, 16:37</entrydate><historyid>35</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Requested'' to ''Done''</details><author>karouf</author><entrydate>10
+        Jun 13, 15:39</entrydate><historyid>5</historyid></item><item><eventtype>Transitions</eventtype><historyevent>Task
+        moved</historyevent><details>From ''Backlog'' to ''Requested''</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>4</historyid></item><item><eventtype>Blocks</eventtype><historyevent>Task
+        unblocked</historyevent><details>Block reason was: R&amp;D</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>3</historyid></item><item><eventtype>Blocks</eventtype><historyevent>Task
+        blocked</historyevent><details>Block reason: R&amp;D</details><author>karouf</author><entrydate>10
+        Jun 13, 15:35</entrydate><historyid>2</historyid></item><item><eventtype>Updates</eventtype><historyevent>Task
+        created</historyevent><details>Task : Test</details><author>karouf</author><entrydate>10
+        Jun 13, 15:33</entrydate><historyid>1</historyid></item></historydetails></xml>
+
+'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:09:05 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes/event/comment/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 16:10:27 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=77f5f19896ed353a7fffef69db5e507d; expires=Fri, 28-Jun-2013 00:10:27
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22b8d98c7f24d246dc780b02522c94497f%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372349427%3B%7Df49424c78a524cbe9e210fe7c771d94a;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"taskid":"7","title":"Write Api specs","description":"","type":"Feature
+        request","assignee":"karouf","subtasks":"1","subtaskscomplete":"0","color":"#b3b340","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"leadtime":6,"blocked":"0","blockedreason":null,"columnname":"En
+        cours","lanename":"Standard","subtaskdetails":[{"taskid":"42","assignee":"None","title":"Some
+        stuff to do","completiondate":null}],"columnid":"progress_2","laneid":"7","columnpath":"En
+        cours","loggedtime":0,"historydetails":[{"eventtype":"Comments","historyevent":"Comment
+        added","details":"''Another comment.''","author":"karouf","entrydate":"25
+        Jun 13, 09:04","historyid":"86"},{"eventtype":"Comments","historyevent":"Comment
+        added","details":"''Test comment''","author":"karouf","entrydate":"24 Jun
+        13, 17:14","historyid":"51"}]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 16:11:01 GMT
+recorded_with: VCR 2.5.0

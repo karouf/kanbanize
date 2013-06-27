@@ -801,5 +801,58 @@ describe Kanbanize::API do
       end
     end
   end
+
+  describe '#get_task_details' do
+    before do
+      VCR.insert_cassette 'get_task_details', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    subject { Kanbanize::API.new(KANBANIZE_API_KEY) }
+
+    describe 'when proper board and task ids are provided' do
+      it 'performs the HTTP request' do
+        subject.get_task_details(2, 7)
+        assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/format/json'
+      end
+
+      it 'returns a hash' do
+        subject.get_task_details(2, 7).must_be_instance_of Hash
+      end
+
+      it 'returns the corresponding task data' do
+        subject.get_task_details(2, 7)['title'].must_equal 'Write Api specs'
+      end
+
+      describe 'when history is requested' do
+        it 'performs the HTTP request' do
+          subject.get_task_details(2, 7, :history => true)
+          assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes/format/json'
+        end
+
+        it 'returns an array of history events' do
+          subject.get_task_details(2, 7, :history => true)['historydetails'].must_be_instance_of Array
+        end
+
+        it 'returns the history events of the task requested' do
+          subject.get_task_details(2, 7, :history => true)['historydetails'][0]['historyid'].to_i.must_equal 88
+        end
+
+        describe 'when the type of event is specified' do
+          it 'performs the HTTP request' do
+            subject.get_task_details(2, 7, :history => true, :event => :comment)
+            assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_task_details/boardid/2/taskid/7/history/yes/event/comment/format/json'
+          end
+
+          it 'returns only the history events of the type specified' do
+            subject.get_task_details(2, 7, :history => true, :event => :comment)['historydetails'][0]['historyid'].to_i.must_equal 86
+          end
+        end
+      end
+    end
+  end
 end
 
