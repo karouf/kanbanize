@@ -484,5 +484,322 @@ describe Kanbanize::API do
       end
     end
   end
+
+  describe '#get_all_tasks' do
+    before do
+      VCR.insert_cassette 'get_all_tasks', :record => :new_episodes
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
+    describe 'by default' do
+
+      subject { Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2) }
+
+      it 'performs the HTTP request' do
+        subject
+        assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/format/json'
+      end
+
+      it 'returns an array of tasks' do
+        subject.must_be_instance_of Array
+      end
+
+      it 'returns the tasks data' do
+        subject[0]['taskid'].to_i.must_equal 7
+      end
+    end
+
+    describe 'with subtasks requested' do
+
+      subject do
+        options = {:subtasks => true}
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+      end
+
+      it 'performs the HTTP request' do
+        subject
+        assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/subtasks/yes/format/json'
+      end
+
+      it 'returns an array of tasks' do
+        subject.must_be_instance_of Array
+      end
+
+      it 'returns the tasks data' do
+        subject[0]['taskid'].to_i.must_equal 7
+      end
+
+      it 'returns an array of subtasks for each task' do
+        subject[0]['subtaskdetails'].must_be_instance_of Array
+      end
+
+      it 'returns the subtasks data' do
+        subject[0]['subtaskdetails'][0]['subtaskid'].to_i.must_equal 42
+      end
+    end
+
+    describe 'with archive requested' do
+
+      subject do
+        options = {:archive => true}
+        Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+      end
+
+      it 'performs the HTTP request' do
+        subject
+        assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/format/json'
+      end
+
+      it 'returns a hash' do
+        subject.must_be_instance_of Hash
+      end
+
+      it 'returns the number of tasks' do
+        subject['numberoftasks'].to_i.must_equal 5
+      end
+
+      it 'returns the current page' do
+        subject['page'].to_i.must_equal 1
+      end
+
+      it 'returns the number of tasks page' do
+        subject['tasksperpage'].to_i.must_equal 30
+      end
+
+      it 'returns an array of tasks' do
+        subject['task'].must_be_instance_of Array
+      end
+
+      it 'returns the tasks data' do
+        subject['task'][0]['taskid'].to_i.must_equal 7
+      end
+    end
+
+    describe 'with a from date specified' do
+      describe 'with the archive requested' do
+
+        subject do
+          options = {:archive => true, :from => Date.new(2013, 06, 14)}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'performs the HTTP request' do
+          subject
+          assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/fromdate/2013-06-14/format/json'
+        end
+
+        it 'returns a hash' do
+          subject.must_be_instance_of Hash
+        end
+
+        it 'returns the number of tasks' do
+          subject['numberoftasks'].to_i.must_equal 0
+        end
+
+        it 'returns the current page' do
+          subject['page'].to_i.must_equal 1
+        end
+
+        it 'returns the number of tasks page' do
+          subject['tasksperpage'].to_i.must_equal 30
+        end
+
+        it 'returns an array of tasks' do
+          subject['task'].must_be_instance_of Array
+        end
+
+        it 'returns the tasks data' do
+          subject['task'].must_be_empty
+        end
+      end
+
+      describe 'with the archive not requested' do
+
+        subject do
+          options = {:from => Date.new(2013, 06, 14)}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+    end
+
+    describe 'with an archive to date specified' do
+      describe 'with the archive requested' do
+
+        subject do
+          options = {:archive => true, :to => Date.new(2013, 06, 12)}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'performs the HTTP request' do
+          subject
+          assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/todate/2013-06-12/format/json'
+        end
+
+        it 'returns a hash' do
+          subject.must_be_instance_of Hash
+        end
+
+        it 'returns the number of tasks' do
+          subject['numberoftasks'].to_i.must_equal 0
+        end
+
+        it 'returns the current page' do
+          subject['page'].to_i.must_equal 1
+        end
+
+        it 'returns the number of tasks page' do
+          subject['tasksperpage'].to_i.must_equal 30
+        end
+
+        it 'returns an array of tasks' do
+          subject['task'].must_be_instance_of Array
+        end
+
+        it 'returns the tasks data' do
+          subject['task'].must_be_empty
+        end
+      end
+
+      describe 'with the archive not requested' do
+
+        subject do
+          options = {:to => Date.new(2013, 06, 12)}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+    end
+
+    describe 'with archive version specified' do
+      describe 'with the archive requested' do
+
+        subject do
+          options = {:archive => true, :version => '20130612'}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'performs the HTTP request' do
+          subject
+          assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/version/20130612/format/json'
+        end
+
+        it 'returns a hash' do
+          subject.must_be_instance_of Hash
+        end
+
+        it 'returns an array of tasks' do
+          subject['task'].must_be_instance_of Array
+        end
+
+        it 'returns the tasks data' do
+          subject['task'][0]['taskid'].to_i.must_equal 7
+        end
+      end
+
+      describe 'with the archive not requested' do
+
+        subject do
+          options = {:version => '20130612'}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+
+      describe 'with an incorrect version name' do
+        subject do
+          options = {:archive => true, :version => '2013061'}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'returns nil' do
+          subject.must_be_nil
+        end
+      end
+    end
+
+    describe 'with a page number specified' do
+      describe 'with the archive requested' do
+        subject do
+          options = {:archive => true, :page => 2}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'performs the HTTP request' do
+          subject
+          assert_requested :post, 'http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/page/2/format/json'
+        end
+
+        it 'returns a hash' do
+          subject.must_be_instance_of Hash
+        end
+
+        it 'returns the number of tasks' do
+          subject['numberoftasks'].to_i.must_equal 5
+        end
+
+        it 'returns the current page' do
+          subject['page'].to_i.must_equal 2
+        end
+
+        it 'returns the number of tasks page' do
+          subject['tasksperpage'].to_i.must_equal 30
+        end
+
+        it 'returns an array of tasks' do
+          subject['task'].must_be_instance_of Array
+        end
+
+        it 'returns the tasks data' do
+          subject['task'].must_be_empty
+        end
+      end
+
+      describe 'with the archive not requested' do
+        subject do
+          options = {:page => 2}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+
+      describe 'with a page argument which is not an integer' do
+        subject do
+          options = {:archive => true, :page => 'a'}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+
+      describe 'with an page number < 1' do
+        subject do
+          options = {:archive => true, :page => 0}
+          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
+        end
+
+        it 'raises an exception' do
+          lambda{ subject }.must_raise ArgumentError
+        end
+      end
+    end
+  end
 end
 

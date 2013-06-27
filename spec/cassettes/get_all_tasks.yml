@@ -1,0 +1,321 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:03:52 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=3639c9b47cdfb8d254f59a6803cb076b; expires=Thu, 27-Jun-2013 18:03:52
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22949f63694cf74eaacde55f223aa30a9e%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327432%3B%7D55ac107316f31b8a46c167582ad701c0;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '[{"taskid":"7","position":"0","type":"Feature request","assignee":"karouf","title":"Write
+        Api specs","description":"","subtasks":"1","subtaskscomplete":"0","color":"#b3b340","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"progress_2","laneid":"7","leadtime":6,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"En
+        cours","lanename":"Standard","columnpath":"En cours","logedtime":0},{"taskid":"8","position":"2","type":"None","assignee":"karouf","title":"Another
+        task","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"9","position":"1","type":"None","assignee":"karouf","title":"And
+        again","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"10","position":"3","type":"None","assignee":"karouf","title":"Love
+        this game","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"11","position":"0","type":"Bug","assignee":"karouf","title":"Aloha","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"12","position":"0","type":"None","assignee":"None","title":"Test1","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"13","position":"1","type":"None","assignee":"None","title":"Test2","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"14","position":"2","type":"None","assignee":"None","title":"Test3","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"15","position":"3","type":"None","assignee":"None","title":"Test4","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"16","position":"4","type":"None","assignee":"None","title":"Test5","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"17","position":"5","type":"None","assignee":"None","title":"Test6","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"18","position":"6","type":"None","assignee":"None","title":"Test7","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"19","position":"7","type":"None","assignee":"None","title":"Test8","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"20","position":"8","type":"None","assignee":"None","title":"Test9","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"21","position":"9","type":"None","assignee":"None","title":"Test10","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"22","position":"10","type":"None","assignee":"None","title":"Test11","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"23","position":"11","type":"None","assignee":"None","title":"Test12","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"24","position":"12","type":"None","assignee":"None","title":"Test13","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"25","position":"13","type":"None","assignee":"None","title":"Test14","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"26","position":"14","type":"None","assignee":"None","title":"Test15","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"27","position":"15","type":"None","assignee":"None","title":"Test16","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"28","position":"16","type":"None","assignee":"None","title":"Test17","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"29","position":"17","type":"None","assignee":"None","title":"Test18","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"30","position":"18","type":"None","assignee":"None","title":"Test19","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"31","position":"19","type":"None","assignee":"None","title":"Test20","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"32","position":"20","type":"None","assignee":"None","title":"Test21","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"33","position":"21","type":"None","assignee":"None","title":"Test22","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"34","position":"22","type":"None","assignee":"None","title":"Test23","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"35","position":"23","type":"None","assignee":"None","title":"Test24","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"36","position":"24","type":"None","assignee":"None","title":"Test25","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"37","position":"25","type":"None","assignee":"None","title":"Test26","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"38","position":"26","type":"None","assignee":"None","title":"Test27","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"39","position":"27","type":"None","assignee":"None","title":"Test28","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"40","position":"28","type":"None","assignee":"None","title":"Test29","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"41","position":"29","type":"None","assignee":"None","title":"Test30","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0}]'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:25 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/fromdate/2013-06-14/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:03:53 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=6cc88f5b76914d5a913e6731948c48f0; expires=Thu, 27-Jun-2013 18:03:53
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%220b493b6e2b0dee0871d1e439f9e46d9f%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327433%3B%7D01c4f0dd8c3bde55dcca5c5c8cf483d4;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"numberoftasks":"0","page":1,"tasksperpage":30,"task":[]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:27 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/page/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:03:56 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=fe9e1799da9c8ef3c211e4cf8edbbf5c; expires=Thu, 27-Jun-2013 18:03:56
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22422cb61c4328c1470984b7a91c8416b2%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327436%3B%7D6ded33cbbe3bf6ffa0fb040cabed8926;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"numberoftasks":"5","page":"2","tasksperpage":30,"task":[]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:30 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/todate/2013-06-12/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:03:58 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=b866b6e8e04c82e5a7444260b572e34e; expires=Thu, 27-Jun-2013 18:03:58
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2203cfd71754ad5bc057eb8bf784d273be%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327438%3B%7D516c85f70f90dca2115d5b45fb653f1f;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"numberoftasks":"0","page":1,"tasksperpage":30,"task":[]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:32 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:04:01 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=4da84efa10f62c1bc0e9f2c18c151ecd; expires=Thu, 27-Jun-2013 18:04:01
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22b6265de07f4b604934ea182f1cf53dbf%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327441%3B%7Dfd5c8fa8926ac92299e751576aa3439d;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"numberoftasks":"5","page":1,"tasksperpage":30,"task":[{"taskid":"7","position":"1","type":"Support
+        request","assignee":"None","title":"Test","description":"blah","subtasks":"0","subtaskscomplete":"0","color":"#668cd9","priority":"High","size":"2","deadline":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"4","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Urgent","createdorarchived":"2013-06-13","deadlineoriginalformat":null,"columnpath":"Fini","leadtime":6,"loggedtime":0},{"taskid":"8","position":"1","type":"None","assignee":"karouf","title":"API
+        test","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"extlink":"","tags":null,"columnid":"done_3","laneid":"7","blocked":null,"blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","deadlineoriginalformat":null,"columnpath":"Fini","leadtime":5,"loggedtime":0},{"taskid":"9","position":"0","type":"None","assignee":"karouf","title":"test","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"7","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","deadlineoriginalformat":null,"columnpath":"Fini","leadtime":5,"loggedtime":0},{"taskid":"10","position":"0","type":"None","assignee":"None","title":"sdg","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"4","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Urgent","createdorarchived":"2013-06-13","deadlineoriginalformat":null,"columnpath":"Fini","leadtime":5,"loggedtime":0},{"taskid":"11","position":"0","type":"None","assignee":"karouf","title":"dfh","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"7","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","deadlineoriginalformat":null,"columnpath":"Fini","leadtime":5,"loggedtime":0}]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:33 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/version/2013061/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Content-Length:
+      - '0'
+      Date:
+      - Thu, 27 Jun 2013 10:04:01 GMT
+      Content-Type:
+      - text/html
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=cbd128c45681964ea64ef746f994b74e; expires=Thu, 27-Jun-2013 18:04:01
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2287586ebca73160d5672612cc63b13ed1%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327441%3B%7Dc51c8f0d1e75a57d5ff3be061ba1cc35;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ''
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:36 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/container/archive/version/20130612/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:04:04 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=7521ca2737c12b8c284661b6cccbe278; expires=Thu, 27-Jun-2013 18:04:04
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22d89399bae60548da1ff535383e3299e8%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327444%3B%7D908bde161fccdc68c2442405a482d6b1;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"task":[{"taskid":"7","position":"1","type":"Support request","assignee":"None","title":"Test","description":"blah","subtasks":"0","subtaskscomplete":"0","color":"#668cd9","priority":"High","size":"2","deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"4","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Urgent","createdorarchived":"2013-06-13","leadtime":6,"loggedtime":0},{"taskid":"8","position":"1","type":"None","assignee":"karouf","title":"API
+        test","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":"","tags":null,"columnid":"done_3","laneid":"7","blocked":null,"blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","leadtime":5,"loggedtime":0},{"taskid":"9","position":"0","type":"None","assignee":"karouf","title":"test","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"7","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","leadtime":5,"loggedtime":0},{"taskid":"10","position":"0","type":"None","assignee":"None","title":"sdg","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"4","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Urgent","createdorarchived":"2013-06-13","leadtime":5,"loggedtime":0},{"taskid":"11","position":"0","type":"None","assignee":"karouf","title":"dfh","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"done_3","laneid":"7","blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Fini","lanename":"Standard","createdorarchived":"2013-06-13","leadtime":5,"loggedtime":0}]}'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:38 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_all_tasks/boardid/2/subtasks/yes/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 27 Jun 2013 10:04:06 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=32ecaef100093057bf3874a5001dc6f8; expires=Thu, 27-Jun-2013 18:04:06
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22c228b068432e312ce1c4f4836214b85e%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372327446%3B%7Ddfbea3e63c268d02ca68f1e91d7d92a3;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '[{"taskid":"7","position":"0","type":"Feature request","assignee":"karouf","title":"Write
+        Api specs","description":"","subtasks":"1","subtaskscomplete":"0","color":"#b3b340","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"progress_2","laneid":"7","leadtime":6,"blocked":"0","blockedreason":null,"subtaskdetails":[{"subtaskid":"42","completiondate":null,"assignee":"None","title":"Some
+        stuff to do"}],"columnname":"En cours","lanename":"Standard","columnpath":"En
+        cours","logedtime":0},{"taskid":"8","position":"2","type":"None","assignee":"karouf","title":"Another
+        task","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"9","position":"1","type":"None","assignee":"karouf","title":"And
+        again","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"10","position":"3","type":"None","assignee":"karouf","title":"Love
+        this game","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"11","position":"0","type":"Bug","assignee":"karouf","title":"Aloha","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"archive_6","laneid":"4","leadtime":5,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Archive","lanename":"Urgent","columnpath":"Archive","logedtime":0},{"taskid":"12","position":"0","type":"None","assignee":"None","title":"Test1","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"13","position":"1","type":"None","assignee":"None","title":"Test2","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"14","position":"2","type":"None","assignee":"None","title":"Test3","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"15","position":"3","type":"None","assignee":"None","title":"Test4","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"16","position":"4","type":"None","assignee":"None","title":"Test5","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"17","position":"5","type":"None","assignee":"None","title":"Test6","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"18","position":"6","type":"None","assignee":"None","title":"Test7","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"19","position":"7","type":"None","assignee":"None","title":"Test8","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"20","position":"8","type":"None","assignee":"None","title":"Test9","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"21","position":"9","type":"None","assignee":"None","title":"Test10","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"22","position":"10","type":"None","assignee":"None","title":"Test11","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"23","position":"11","type":"None","assignee":"None","title":"Test12","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"24","position":"12","type":"None","assignee":"None","title":"Test13","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"25","position":"13","type":"None","assignee":"None","title":"Test14","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"26","position":"14","type":"None","assignee":"None","title":"Test15","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"27","position":"15","type":"None","assignee":"None","title":"Test16","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"28","position":"16","type":"None","assignee":"None","title":"Test17","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"29","position":"17","type":"None","assignee":"None","title":"Test18","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"30","position":"18","type":"None","assignee":"None","title":"Test19","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"31","position":"19","type":"None","assignee":"None","title":"Test20","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"32","position":"20","type":"None","assignee":"None","title":"Test21","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"33","position":"21","type":"None","assignee":"None","title":"Test22","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"34","position":"22","type":"None","assignee":"None","title":"Test23","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"35","position":"23","type":"None","assignee":"None","title":"Test24","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"36","position":"24","type":"None","assignee":"None","title":"Test25","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"37","position":"25","type":"None","assignee":"None","title":"Test26","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"38","position":"26","type":"None","assignee":"None","title":"Test27","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"39","position":"27","type":"None","assignee":"None","title":"Test28","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"40","position":"28","type":"None","assignee":"None","title":"Test29","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0},{"taskid":"41","position":"29","type":"None","assignee":"None","title":"Test30","description":"","subtasks":"0","subtaskscomplete":"0","color":"#99b399","priority":"Average","size":null,"deadline":null,"deadlineoriginalformat":null,"extlink":null,"tags":null,"columnid":"backlog_5","laneid":"4","leadtime":2,"blocked":"0","blockedreason":null,"subtaskdetails":[],"columnname":"Backlog","lanename":"Urgent","columnpath":"Backlog","logedtime":0}]'
+    http_version: 
+  recorded_at: Thu, 27 Jun 2013 10:04:39 GMT
+recorded_with: VCR 2.5.0

@@ -47,6 +47,26 @@ module Kanbanize
       post(uri)
     end
 
+    def get_all_tasks(board_id, options = {})
+      raise ArgumentError if options[:from] && !options[:archive]
+      raise ArgumentError if options[:to] && !options[:archive]
+      raise ArgumentError if options[:version] && !options[:archive]
+      raise ArgumentError if options[:page] && !options[:archive]
+      raise ArgumentError if options[:page] && !options[:page].kind_of?(Integer)
+      raise ArgumentError if options[:page] && (options[:page] < 1)
+
+      uri = "/get_all_tasks/boardid/#{board_id}"
+      uri += '/subtasks/yes' if options[:subtasks]
+      uri += '/container/archive' if options[:archive]
+      uri += "/fromdate/#{options[:from]}" if options[:from]
+      uri += "/todate/#{options[:to]}" if options[:to]
+      uri += "/version/#{options[:version]}" if options[:version]
+      uri += "/page/#{options[:page]}" if options[:page]
+      uri += "/format/json"
+
+      post(uri)
+    end
+
     private
     def post(uri)
       self.class.post(uri, :headers => {'apikey' => @apikey})
