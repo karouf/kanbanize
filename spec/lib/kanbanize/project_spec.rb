@@ -10,7 +10,7 @@ describe Kanbanize::Project do
   end
 
   it 'sets its id from the data provided' do
-    Kanbanize::Project.new({'id' => 1}).id.must_equal 1
+    Kanbanize::Project.new({'id' => '1'}).id.must_equal 1
   end
 
   it 'sets its name from the data provided' do
