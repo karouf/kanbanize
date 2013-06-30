@@ -6,6 +6,6 @@ gem 'httparty'
 
 group :test do
   gem 'minitest-reporters'
-  gem 'webmock'
+  gem 'webmock', '>= 1.8.0', '< 1.12'
   gem 'vcr'
 end
