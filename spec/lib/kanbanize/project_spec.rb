@@ -37,6 +37,24 @@ describe Kanbanize::Project do
       it 'sets its boards from the data provided' do
         subject.boards.count.must_equal 1
       end
+
+      it 'sets its boards to an empty array if boards are not provided' do
+        Kanbanize::Project.new({'id' => '1', 'name' => 'Test project', 'boards' => []}).boards.must_be_empty
+      end
+    end
+
+    describe 'with invalid data' do
+      it 'raises an ArgumentError if no id is provided' do
+        lambda do
+          Kanbanize::Project.new({'name' => 'Test project', 'boards' => ['id' => '1', 'name' => 'Testers board']})
+        end.must_raise ArgumentError
+      end
+
+      it 'raises an ArgumentError if no name is provided' do
+        lambda do
+          Kanbanize::Project.new({'id' => '1', 'boards' => ['id' => '1', 'name' => 'Testers board']})
+        end.must_raise ArgumentError
+      end
     end
   end
 

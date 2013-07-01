@@ -3,6 +3,9 @@ module Kanbanize
     attr_reader :id, :name, :boards
 
     def initialize(data)
+      raise ArgumentError unless data['id']
+      raise ArgumentError unless data['name']
+
       @id = data['id'].to_i
       @name = data['name']
 
