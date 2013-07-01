@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_projects_and_boards/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 30 Jun 2013 19:29:14 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=7edc96638d92443698a46d9374dfd33f; expires=Mon, 01-Jul-2013 03:29:14
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22bf5f54f0733ee661444306c8eaf99881%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2288.122.45.211%22%3Bs%3A10%3A%22user_agent%22%3Bb%3A0%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372620554%3B%7D5db186e529d2c45a8582386a09726a0a;
+        path=/
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: US-ASCII
+      string: ! '{"projects":[{"name":"My First Kanban Project","id":"1","boards":[{"name":"Test","id":"3"},{"name":"My
+        First Kanban Board","id":"2"}]}]}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2013 19:29:14 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/login/email/test@testers.com/pass/test/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 30 Jun 2013 19:29:15 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=8469144dacd29b3debccf3fdacf2f984; expires=Mon, 01-Jul-2013 03:29:15
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%226147a17271c48cffbc1b43386ed115bb%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2288.122.45.211%22%3Bs%3A10%3A%22user_agent%22%3Bb%3A0%3Bs%3A13%3A%22last_activity%22%3Bi%3A1372620555%3B%7Db438bbc25d681394076626256415e4ba;
+        path=/
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: US-ASCII
+      string: ! '{"email":"test@testers.com","username":"test","realname":"Testy McTest"
+        ,"companyname":"Testers Inc.","timezone":"+00:00","apikey":"testapikey"}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2013 19:29:15 GMT
+recorded_with: VCR 2.5.0

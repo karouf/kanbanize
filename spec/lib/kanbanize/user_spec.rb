@@ -7,7 +7,7 @@ describe Kanbanize::User do
   KANBANIZE_PASS = ENV['KANBANIZE_PASS'] || 'test'
 
   before do
-    VCR.insert_cassette 'login', :record => :none
+    VCR.insert_cassette 'user', :record => :new_episodes
   end
 
   after do
@@ -61,6 +61,25 @@ describe Kanbanize::User do
 
     it 'gives access to its timezone' do
       Kanbanize::User.new(KANBANIZE_EMAIL, KANBANIZE_PASS).timezone.must_equal '+00:00'
+    end
+  end
+
+  describe '#projects' do
+    subject { Kanbanize::User.new(KANBANIZE_API_KEY).projects }
+
+    it 'gives access to its projects' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).must_respond_to :projects
+    end
+
+    it 'returns an array of projects' do
+      subject.must_be_instance_of Array
+      subject.first.must_be_instance_of Kanbanize::Project
+    end
+
+    it 'gets its projects from Kanbanize' do
+      subject.count.must_equal 1
+      subject.first.id.must_equal 1
+      subject.first.name.must_equal 'My First Kanban Project'
     end
   end
 end

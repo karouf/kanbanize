@@ -1,7 +1,7 @@
 module Kanbanize
   class User
 
-    attr_reader :api_key, :username, :realname, :email, :company, :timezone
+    attr_reader :api_key, :username, :realname, :email, :company, :timezone, :projects
 
     def initialize(*args)
       case args.size
@@ -12,6 +12,14 @@ module Kanbanize
       else
         raise ArgumentError
       end
+    end
+
+    def projects
+      projects = []
+      API.new(@api_key).get_projects_and_boards['projects'].each do |project|
+        projects << Project.new(project)
+      end
+      return projects
     end
 
     private
