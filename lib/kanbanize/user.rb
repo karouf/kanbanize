@@ -1,7 +1,7 @@
 module Kanbanize
   class User
 
-    attr_reader :api_key, :username, :realname, :email, :company, :timezone, :projects
+    attr_reader :api_key, :username, :realname, :email, :company, :timezone
 
     def initialize(*args)
       case args.size
