@@ -36,6 +36,26 @@ describe Kanbanize::User do
     it 'gives access to its API key' do
       Kanbanize::User.new(KANBANIZE_API_KEY).api_key.must_equal KANBANIZE_API_KEY
     end
+
+    it 'gives access to its username' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).username.must_equal nil
+    end
+
+    it 'gives access to its real name' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).realname.must_equal nil
+    end
+
+    it 'gives access to its email address' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).email.must_equal nil
+    end
+
+    it 'gives access to its company name' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).company.must_equal nil
+    end
+
+    it 'gives access to its timezone' do
+      Kanbanize::User.new(KANBANIZE_API_KEY).timezone.must_equal nil
+    end
   end
 
   describe 'created with an email and a password' do
