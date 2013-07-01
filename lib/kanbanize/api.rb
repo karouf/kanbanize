@@ -25,15 +25,15 @@ module Kanbanize
     end
 
     def get_projects_and_boards
-      post('/get_projects_and_boards/format/json')
+      post('/get_projects_and_boards')
     end
 
     def get_board_structure(board_id)
-      post("/get_board_structure/boardid/#{board_id}/format/json")
+      post("/get_board_structure/boardid/#{board_id}")
     end
 
     def get_board_settings(board_id)
-      post("/get_board_settings/boardid/#{board_id}/format/json")
+      post("/get_board_settings/boardid/#{board_id}")
     end
 
     def get_board_activities(board_id, from, to, options = {})
@@ -42,7 +42,6 @@ module Kanbanize
       uri += "/resultsperpage/#{options[:results]}" if options[:results]
       uri += "/author/#{options[:author]}" if options[:author]
       uri += "/eventtype/#{options[:events]}" if options[:events]
-      uri += "/format/json"
 
       post(uri)
     end
@@ -59,7 +58,6 @@ module Kanbanize
       uri += "/todate/#{options[:to]}" if options[:to]
       uri += "/version/#{options[:version]}" if options[:version]
       uri += "/page/#{options[:page]}" if options[:page]
-      uri += "/format/json"
 
       post(uri)
     end
@@ -68,14 +66,13 @@ module Kanbanize
       uri = "/get_task_details/boardid/#{board_id}/taskid/#{task_id}"
       uri += '/history/yes' if options[:history]
       uri += "/event/#{options[:event]}" if options[:event]
-      uri += '/format/json'
 
       post(uri)
     end
 
     private
     def post(uri)
-      self.class.post(uri, :headers => {'apikey' => @apikey})
+      self.class.post(uri + '/format/json', :headers => {'apikey' => @apikey})
     end
 
     def set_proxy
