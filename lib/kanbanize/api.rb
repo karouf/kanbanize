@@ -48,10 +48,7 @@ module Kanbanize
     end
 
     def get_all_tasks(board_id, options = {})
-      raise ArgumentError if options[:from] && !options[:archive]
-      raise ArgumentError if options[:to] && !options[:archive]
-      raise ArgumentError if options[:version] && !options[:archive]
-      raise ArgumentError if options[:page] && !options[:archive]
+      raise ArgumentError if (options[:from] || options[:to] || options[:version] || options[:page]) && !options[:archive]
       raise ArgumentError if options[:page] && !options[:page].kind_of?(Integer)
       raise ArgumentError if options[:page] && (options[:page] < 1)
 
