@@ -47,19 +47,14 @@ module Kanbanize
     end
 
     def get_all_tasks(board_id, options = {})
-      raise ArgumentError if (options[:from] || options[:to] || options[:version] || options[:page]) && !options[:archive]
       raise ArgumentError if options[:page] && !options[:page].kind_of?(Integer)
       raise ArgumentError if options[:page] && (options[:page] < 1)
 
-      uri = "/get_all_tasks/boardid/#{board_id}"
-      uri += '/subtasks/yes' if options[:subtasks]
-      uri += '/container/archive' if options[:archive]
-      uri += "/fromdate/#{options[:from]}" if options[:from]
-      uri += "/todate/#{options[:to]}" if options[:to]
-      uri += "/version/#{options[:version]}" if options[:version]
-      uri += "/page/#{options[:page]}" if options[:page]
-
-      post(uri)
+      if options.delete(:archive)
+        return get_archived_tasks(board_id, options)
+      else
+        return get_board_tasks(board_id, options)
+      end
     end
 
     def get_task_details(board_id, task_id, options = {})
@@ -92,6 +87,23 @@ module Kanbanize
 
     def set_apikey(apikey)
       @apikey = apikey if apikey
+    end
+
+    def get_archived_tasks(board_id, options = {})
+      uri = "/get_all_tasks/boardid/#{board_id}/container/archive"
+      uri += '/subtasks/yes' if options[:subtasks]
+      uri += "/fromdate/#{options[:from]}" if options[:from]
+      uri += "/todate/#{options[:to]}" if options[:to]
+      uri += "/version/#{options[:version]}" if options[:version]
+      uri += "/page/#{options[:page]}" if options[:page]
+      post(uri)
+    end
+
+    def get_board_tasks(board_id, options = {})
+      uri = "/get_all_tasks/boardid/#{board_id}"
+      uri += '/subtasks/yes' if options[:subtasks]
+      uri += "/page/#{options[:page]}" if options[:page]
+      post(uri)
     end
   end
 end

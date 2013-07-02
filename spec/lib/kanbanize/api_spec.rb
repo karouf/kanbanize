@@ -615,18 +615,6 @@ describe Kanbanize::API do
           subject['task'].must_be_empty
         end
       end
-
-      describe 'with the archive not requested' do
-
-        subject do
-          options = {:from => Date.new(2013, 06, 14)}
-          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
-        end
-
-        it 'raises an exception' do
-          lambda{ subject }.must_raise ArgumentError
-        end
-      end
     end
 
     describe 'with an archive to date specified' do
@@ -666,18 +654,6 @@ describe Kanbanize::API do
           subject['task'].must_be_empty
         end
       end
-
-      describe 'with the archive not requested' do
-
-        subject do
-          options = {:to => Date.new(2013, 06, 12)}
-          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
-        end
-
-        it 'raises an exception' do
-          lambda{ subject }.must_raise ArgumentError
-        end
-      end
     end
 
     describe 'with archive version specified' do
@@ -703,18 +679,6 @@ describe Kanbanize::API do
 
         it 'returns the tasks data' do
           subject['task'][0]['taskid'].to_i.must_equal 7
-        end
-      end
-
-      describe 'with the archive not requested' do
-
-        subject do
-          options = {:version => '20130612'}
-          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
-        end
-
-        it 'raises an exception' do
-          lambda{ subject }.must_raise ArgumentError
         end
       end
 
@@ -764,17 +728,6 @@ describe Kanbanize::API do
 
         it 'returns the tasks data' do
           subject['task'].must_be_empty
-        end
-      end
-
-      describe 'with the archive not requested' do
-        subject do
-          options = {:page => 2}
-          Kanbanize::API.new(KANBANIZE_API_KEY).get_all_tasks(2, options)
-        end
-
-        it 'raises an exception' do
-          lambda{ subject }.must_raise ArgumentError
         end
       end
 
