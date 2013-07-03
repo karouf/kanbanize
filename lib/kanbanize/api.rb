@@ -67,7 +67,7 @@ module Kanbanize
 
     private
     def post(uri)
-      self.class.post(uri + '/format/json', :headers => {'apikey' => @apikey})
+      self.class.post(uri + '/format/json', :headers => {'apikey' => @apikey}).parsed_response
     end
 
     def set_proxy
