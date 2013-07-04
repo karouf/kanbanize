@@ -3,8 +3,6 @@ require_relative '../../spec_helper'
 
 describe Kanbanize::API do
 
-  KANBANIZE_API_KEY = ENV['KANBANIZE_API_KEY'] || 'testapikey'
-
   it 'uses the Kanbanize API endpoint as its base URI' do
     Kanbanize::API.base_uri.must_equal 'http://kanbanize.com/index.php/api/kanbanize'
   end

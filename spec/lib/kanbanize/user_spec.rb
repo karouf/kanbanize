@@ -2,10 +2,6 @@ require_relative '../../spec_helper'
 
 describe Kanbanize::User do
 
-  KANBANIZE_API_KEY = ENV['KANBANIZE_API_KEY'] || 'testapikey'
-  KANBANIZE_EMAIL = ENV['KANBANIZE_EMAIL'] || 'test@testers.com'
-  KANBANIZE_PASS = ENV['KANBANIZE_PASS'] || 'test'
-
   before do
     VCR.insert_cassette 'user', :record => :new_episodes
   end
