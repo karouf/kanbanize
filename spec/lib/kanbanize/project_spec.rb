@@ -2,14 +2,15 @@ require_relative '../../spec_helper'
 
 describe Kanbanize::Project do
 
+  let(:api) { Kanbanize::API.new(KANBANIZE_API_KEY)}
   subject do
-    Kanbanize::Project.new({  'id' => '1',
-                              'name' => 'Test project',
-                              'boards' => [
-                                            'id' => '1',
-                                            'name' => 'Testers board'
-                                          ]
-                            })
+    Kanbanize::Project.new(api, { 'id' => '1',
+                                  'name' => 'Test project',
+                                  'boards' => [
+                                                'id' => '1',
+                                                'name' => 'Testers board'
+                                              ]
+                                })
   end
 
   it 'gives access to its id' do
@@ -39,7 +40,7 @@ describe Kanbanize::Project do
       end
 
       it 'sets its boards to an empty array if boards are not provided' do
-        Kanbanize::Project.new({'id' => '1', 'name' => 'Test project', 'boards' => []}).boards.must_be_empty
+        Kanbanize::Project.new(api, {'id' => '1', 'name' => 'Test project', 'boards' => []}).boards.must_be_empty
       end
     end
 

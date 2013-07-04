@@ -13,3 +13,5 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
 end
+
+KANBANIZE_API_KEY = ENV['KANBANIZE_API_KEY'] || 'testapikey'

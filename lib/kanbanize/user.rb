@@ -12,12 +12,13 @@ module Kanbanize
       else
         raise ArgumentError
       end
+      @api = API.new(@api_key)
     end
 
     def projects
       projects = []
-      API.new(@api_key).get_projects_and_boards['projects'].each do |project|
-        projects << Project.new(project)
+      @api.get_projects_and_boards['projects'].each do |project|
+        projects << Project.new(@api, project)
       end
       return projects
     end

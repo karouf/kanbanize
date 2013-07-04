@@ -2,12 +2,22 @@ module Kanbanize
   class Board
     attr_reader :id, :name
 
-    def initialize(data)
-      raise ArgumentError unless data['id']
-      raise ArgumentError unless data['name']
+    def initialize(api, attributes)
+      raise ArgumentError unless attributes['id']
+      raise ArgumentError unless attributes['name']
 
-      @id = data['id'].to_i if data['id']
-      @name = data['name']
+      @api = api
+
+      @id = attributes['id'].to_i if attributes['id']
+      @name = attributes['name']
+    end
+
+    def tasks
+      tasks = []
+      @api.get_all_tasks(@id).each do |task|
+        tasks << Task.new(task)
+      end
+      return tasks
     end
   end
 end
