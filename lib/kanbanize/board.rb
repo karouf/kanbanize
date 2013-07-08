@@ -13,7 +13,11 @@ module Kanbanize
     end
 
     def tasks
-      @tasks ||= @api.get_all_tasks(@id).map{|t| Task.new(t)}
+      @tasks || tasks!
+    end
+
+    def tasks!
+      @tasks = @api.get_all_tasks(@id).map{|t| Task.new(t)}
     end
   end
 end
