@@ -85,6 +85,29 @@ describe Kanbanize::Task do
   end
 
   describe '#initialize' do
+    describe 'with the only required attribute' do
+      it 'sets the id from the attributes provided' do
+        Kanbanize::Task.new({'taskid' => '7'}).id.must_equal 7
+      end
+
+      it 'sets all other attributes to nil' do
+        task = Kanbanize::Task.new({'taskid' => '7'})
+        task.title.must_be_nil
+        task.block_reason.must_be_nil
+        task.type.must_be_nil
+        task.assignee.must_be_nil
+        task.color.must_be_nil
+        task.description.must_be_nil
+        task.priority.must_be_nil
+        task.position.must_be_nil
+        task.blocked?.must_be_nil
+        task.lead_time.must_be_nil
+        task.logged_time.must_be_nil
+        task.deadline.must_be_nil
+        task.size.must_be_nil
+      end
+    end
+
     describe 'with valid attributes' do
       it 'sets the id from the attributes provided' do
         subject.id.must_equal 7
@@ -124,20 +147,7 @@ describe Kanbanize::Task do
       end
 
       it 'sets the size from the attributes provided' do
-        attrs = attributes.merge({'size' => nil})
-        Kanbanize::Task.new(attrs).size.must_equal nil
-        attrs = attributes.merge({'size' => 'S'})
-        Kanbanize::Task.new(attrs).size.must_equal :S
-        attrs = attributes.merge({'size' => 'M'})
-        Kanbanize::Task.new(attrs).size.must_equal :M
-        attrs = attributes.merge({'size' => 'L'})
-        Kanbanize::Task.new(attrs).size.must_equal :L
-        attrs = attributes.merge({'size' => 'XL'})
-        Kanbanize::Task.new(attrs).size.must_equal :XL
-        attrs = attributes.merge({'size' => 'XXL'})
-        Kanbanize::Task.new(attrs).size.must_equal :XXL
-        attrs = attributes.merge({'size' => 'XXXL'})
-        Kanbanize::Task.new(attrs).size.must_equal :XXXL
+        subject.size.must_equal nil
       end
 
       it 'sets the deadline from the attributes provided' do
@@ -213,11 +223,6 @@ describe Kanbanize::Task do
 
       it 'raises an ArgumentError if the deadline is in the wrong format' do
         attrs = attributes.merge({'deadlineoriginalformat' => '20131231'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
-      end
-
-      it 'raises an ArgumentError if the size is not nil, S, M, L, XL, XXL or XXXL' do
-        attrs = attributes.merge({'size' => 'a'})
         lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
       end
     end
