@@ -13,11 +13,7 @@ module Kanbanize
     end
 
     def tasks
-      tasks = []
-      @api.get_all_tasks(@id).each do |task|
-        tasks << Task.new(task)
-      end
-      return tasks
+      @tasks ||= @api.get_all_tasks(@id).map{|t| Task.new(t)}
     end
   end
 end

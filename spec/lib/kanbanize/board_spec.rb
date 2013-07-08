@@ -58,5 +58,42 @@ describe Kanbanize::Board do
       subject.tasks.last.id.must_equal 41
       subject.tasks.last.title.must_equal 'Test30'
     end
+
+    it 'caches its tasks to avoid retrieving them again' do
+      tasks = [ {
+                  "taskid"                 => "7",
+                  "position"               => "0",
+                  "type"                   => "Feature request",
+                  "assignee"               => "karouf",
+                  "title"                  => "Write Api specs",
+                  "description"            => "",
+                  "subtasks"               => "1",
+                  "subtaskscomplete"       => "0",
+                  "color"                  => "#b3b340",
+                  "priority"               => "Average",
+                  "size"                   => nil,
+                  "deadline"               => nil,
+                  "deadlineoriginalformat" => nil,
+                  "extlink"                => nil,
+                  "tags"                   => nil,
+                  "columnid"               => "progress_2",
+                  "laneid"                 => "7",
+                  "leadtime"               => 28,
+                  "blocked"                => "0",
+                  "blockedreason"          => nil,
+                  "subtaskdetails"         => [],
+                  "columnname"             => "En cours",
+                  "lanename"               => "Standard",
+                  "columnpath"             => "En cours",
+                  "logedtime"              => 0
+                }
+              ]
+      api = Minitest::Mock.new
+      api.expect :get_all_tasks, tasks, [2]
+      board = Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'})
+      board.tasks.first.title.must_equal "Write Api specs"
+      board.tasks.first.title.must_equal "Write Api specs"
+      api.verify
+    end
   end
 end
