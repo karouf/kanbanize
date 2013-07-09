@@ -149,4 +149,26 @@ describe Kanbanize::Board do
       api.verify
     end
   end
+
+  describe '#version' do
+    describe 'with a valid version name' do
+      it 'returns an array of tasks' do
+        subject.version('20130612').must_be_instance_of Array
+        subject.version('20130612').first.must_be_instance_of Kanbanize::Task
+      end
+
+      it 'returns the tasks from the specified archived version' do
+        subject.version('20130612').first.id.must_equal 7
+        subject.version('20130612').first.title.must_equal 'Test'
+        subject.version('20130612').last.id.must_equal 11
+        subject.version('20130612').last.title.must_equal 'dfh'
+      end
+    end
+
+    describe 'with an invalid version name' do
+      it 'returns nil' do
+        subject.version('inexistant').must_equal nil
+      end
+    end
+  end
 end
