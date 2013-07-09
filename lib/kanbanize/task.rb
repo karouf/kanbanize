@@ -19,11 +19,12 @@ module Kanbanize
       @tags = attributes['tags'].split(' ') if attributes['tags']
       @block_reason = attributes['blockedreason']
 
+      @lead_time = attributes['leadtime'] ? check_integer(attributes['leadtime']) : nil
+      @position = attributes['position'] ? check_integer(attributes['position']) : nil
+      @logged_time = attributes['logedtime'] ? check_integer(attributes['logedtime']) : nil
+
       set_priority(attributes)
-      set_position(attributes)
       set_block_status(attributes)
-      set_lead_time(attributes)
-      set_logged_time(attributes)
       set_deadline(attributes)
     end
 
@@ -50,14 +51,6 @@ module Kanbanize
       end
     end
 
-    def set_position(attributes)
-      if attributes['position']
-        @position = Integer(attributes['position']) rescue (raise ArgumentError, 'Task position provided is not an integer')
-      else
-        @position = nil
-      end
-    end
-
     def set_block_status(attributes)
       if attributes['blocked']
         if attributes['blocked'] == '0' || attributes['blocked'] == '1'
@@ -67,22 +60,6 @@ module Kanbanize
         end
       else
         @blocked = nil
-      end
-    end
-
-    def set_lead_time(attributes)
-      if attributes['leadtime']
-        @lead_time = Integer(attributes['leadtime']) rescue (raise ArgumentError, 'Task lead time provided is not an integer')
-      else
-        @lead_time = nil
-      end
-    end
-
-    def set_logged_time(attributes)
-      if attributes['logedtime']
-        @logged_time = Integer(attributes['logedtime']) rescue (raise ArgumentError, 'Task logged time provided is not an integer')
-      else
-        @logged_time = nil
       end
     end
 
@@ -96,6 +73,10 @@ module Kanbanize
           raise ArgumentError, 'Task deadline provided is not in %Y-%m-%d format'
         end
       end
+    end
+
+    def check_integer(number)
+      Integer(number) rescue (raise ArgumentError, 'Not an integer')
     end
   end
 end
