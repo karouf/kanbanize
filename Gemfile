@@ -5,6 +5,7 @@ gemspec
 gem 'httparty', '~> 0.11.0'
 
 group :test do
+  gem 'rake', '~> 10.0.3'
   gem 'minitest' ,'~> 4.7.5'
   gem 'minitest-reporters', '~> 0.14.20'
   gem 'webmock', '>= 1.8.0', '< 1.12'
