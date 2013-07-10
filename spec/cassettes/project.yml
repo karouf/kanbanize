@@ -1,0 +1,159 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/1/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - GsO6tNAKRak1DDwOu4glluZ6X8yRWeLKIv0RswFo
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 08:13:15 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=e212efa7f100c798b54c538a180bbdc8; expires=Wed, 10-Jul-2013 16:13:15
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2232d6c64a032f34deac43e9a926f25e3a%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373443995%3B%7D2336830e3df970bcbba6c34453803e2d;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '"The board does not exist"'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 08:13:52 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_projects_and_boards/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - GsO6tNAKRak1DDwOu4glluZ6X8yRWeLKIv0RswFo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 08:16:07 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=6191c99b3981c8473f5bedc9864053af; expires=Wed, 10-Jul-2013 16:16:08
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22d2b6d54184cf28b3f87d5c5eb021a1d8%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373444168%3B%7D066ecaf98c82d090446638b7f0887d19;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"projects":[{"name":"My First Kanban Project","id":"1","boards":[{"name":"Test","id":"3"},{"name":"My
+        First Kanban Board","id":"2"}]}]}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 08:16:45 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/3/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - GsO6tNAKRak1DDwOu4glluZ6X8yRWeLKIv0RswFo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 08:17:21 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=23a2f2b2778db103cca0912b90410fa4; expires=Wed, 10-Jul-2013 16:17:21
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%223b23af2c4579c08990003564167c224f%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373444241%3B%7D7373a962587eea19b7ffccd2cb9c86c5;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"columns":[{"position":"0","lcname":"Requested","description":"","tasksperrow":"1"},{"position":"2","lcname":"In
+        Progress","description":"","tasksperrow":"1"},{"position":"3","lcname":"Done","description":"","tasksperrow":"1"}],"lanes":[{"lcname":"Default
+        Swimlane","color":"#FFFFFF","description":""}]}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 08:17:58 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - GsO6tNAKRak1DDwOu4glluZ6X8yRWeLKIv0RswFo
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 08:17:21 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=67b835b4d7c1ebdd81de822625ed7fdd; expires=Wed, 10-Jul-2013 16:17:21
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22049e48e37f7927b85a8e51c17d19133a%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373444241%3B%7D2bb7aa28c377c435c8d57572f9e4c290;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"columns":[{"position":"0","lcname":"Suivants","description":"","tasksperrow":"3"},{"position":"1","lcname":"En
+        cours","description":"Ce qui est en cours","tasksperrow":"3"},{"position":"3","lcname":"Fini","description":"","tasksperrow":"2"}],"lanes":[{"lcname":"Urgent","color":"#d99f9f","description":""},{"lcname":"Standard","color":"#FFFFFF","description":""},{"lcname":"Interne","color":"#FFFFFF","description":""}]}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 08:17:58 GMT
+recorded_with: VCR 2.5.0

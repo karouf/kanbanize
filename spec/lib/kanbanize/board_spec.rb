@@ -90,6 +90,7 @@ describe Kanbanize::Board do
               ]
       api = Minitest::Mock.new
       api.expect :get_all_tasks, tasks, [2]
+      api.expect :get_board_structure, {'columns' => []}, [2]
       board = Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'})
       board.tasks.first.title.must_equal "Write Api specs"
       board.tasks.first.title.must_equal "Write Api specs"
@@ -143,6 +144,7 @@ describe Kanbanize::Board do
       api = Minitest::Mock.new
       api.expect :get_all_tasks, tasks, [2]
       api.expect :get_all_tasks, refreshed_tasks, [2]
+      api.expect :get_board_structure, {'columns' => []}, [2]
       board = Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'})
       board.tasks.first.title.must_equal "Write Api specs"
       board.tasks!.first.title.must_equal "Write API specifications"
@@ -169,6 +171,51 @@ describe Kanbanize::Board do
       it 'returns nil' do
         subject.version('inexistant').must_equal nil
       end
+    end
+  end
+
+  describe '#[]' do
+    describe 'with a valid column name' do
+      it 'returns a Column object' do
+        subject['Suivants'].must_be_instance_of Kanbanize::Board::Column
+      end
+
+      it 'returns the specified column' do
+        subject['Suivants'].name.must_equal 'Suivants'
+        subject['Suivants'].position.must_equal 0
+      end
+    end
+
+    describe 'with an invalid column name' do
+      it 'returns nil' do
+        subject['inexistant'].must_equal nil
+      end
+    end
+
+    describe 'with a valid column position' do
+      it 'returns a Column object' do
+        subject[0].must_be_instance_of Kanbanize::Board::Column
+      end
+
+      it 'returns the specified column' do
+        subject[0].name.must_equal 'Suivants'
+        subject[0].position.must_equal 0
+      end
+    end
+
+    describe 'with an invalid column position' do
+      it 'returns nil' do
+        subject[60].must_equal nil
+      end
+    end
+  end
+
+  describe '#column' do
+    it 'behaves like #[]' do
+      subject.column('Suivants').must_equal subject['Suivants']
+      subject.column('inexistant').must_equal subject['inexistant']
+      subject.column(0).must_equal subject[0]
+      subject.column(60).must_equal subject[60]
     end
   end
 end

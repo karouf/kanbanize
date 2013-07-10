@@ -10,6 +10,8 @@ module Kanbanize
 
       @id = attributes['id'].to_i if attributes['id']
       @name = attributes['name']
+
+      initialize_structure
     end
 
     def tasks
@@ -26,6 +28,20 @@ module Kanbanize
         return tasks['task'].map{|t| Task.new(t)}
       else
         return nil
+      end
+    end
+
+    def [](arg)
+      @columns[arg] || @columns.select{|k,v| v.position == arg}.values.first
+    end
+    alias_method :column, :[]
+
+    private
+    def initialize_structure
+      @columns = {}
+      @api.get_board_structure(@id)['columns'].each do |attributes|
+        column = Column.new(attributes)
+        @columns[column.name] = column
       end
     end
   end

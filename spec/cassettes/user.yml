@@ -68,4 +68,83 @@ http_interactions:
         ,"companyname":"Testers Inc.","timezone":"+00:00","apikey":"testapikey"}'
     http_version: 
   recorded_at: Sun, 30 Jun 2013 19:29:15 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/3/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 14:26:34 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=15fa3d889c56b5c17e75bd25886a8014; expires=Wed, 10-Jul-2013 22:26:34
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2202e9defde7e3493963fc7473b43b899e%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373466394%3B%7Df88cc4acd5c0cebdff2047d31b3c65c6;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"columns":[{"position":"0","lcname":"Requested","description":"","tasksperrow":"1"},{"position":"2","lcname":"In
+        Progress","description":"","tasksperrow":"1"},{"position":"3","lcname":"Done","description":"","tasksperrow":"1"}],"lanes":[{"lcname":"Default
+        Swimlane","color":"#FFFFFF","description":""}]}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 14:27:12 GMT
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 10 Jul 2013 14:26:35 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=0a950eda393993904f3fb72ec900501c; expires=Wed, 10-Jul-2013 22:26:35
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22e8c481815923b0c2bb9a86fa502de19b%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373466395%3B%7Db4ad9e91876916dc10d8551db3cfceeb;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"columns":[{"position":"0","lcname":"Suivants","description":"","tasksperrow":"3"},{"position":"1","lcname":"En
+        cours","description":"Ce qui est en cours","tasksperrow":"3"},{"position":"3","lcname":"Fini","description":"","tasksperrow":"2"}],"lanes":[{"lcname":"Urgent","color":"#d99f9f","description":""},{"lcname":"Standard","color":"#FFFFFF","description":""},{"lcname":"Interne","color":"#FFFFFF","description":""}]}'
+    http_version: 
+  recorded_at: Wed, 10 Jul 2013 14:27:12 GMT
 recorded_with: VCR 2.5.0

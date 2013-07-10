@@ -1,17 +1,17 @@
 require_relative '../../spec_helper'
 
 describe Kanbanize::Project do
+  before do
+    VCR.insert_cassette 'project', :record => :new_episodes
+  end
+
+  after do
+    VCR.eject_cassette
+  end
 
   let(:api) { Kanbanize::API.new(KANBANIZE_API_KEY)}
-  subject do
-    Kanbanize::Project.new(api, { 'id' => '1',
-                                  'name' => 'Test project',
-                                  'boards' => [
-                                                'id' => '1',
-                                                'name' => 'Testers board'
-                                              ]
-                                })
-  end
+  let(:projects) { api.get_projects_and_boards['projects'] }
+  subject { Kanbanize::Project.new(api, projects.first) }
 
   it 'gives access to its id' do
     subject.must_respond_to :id
@@ -32,11 +32,11 @@ describe Kanbanize::Project do
       end
 
       it 'sets its name from the data provided' do
-        subject.name.must_equal 'Test project'
+        subject.name.must_equal 'My First Kanban Project'
       end
 
       it 'sets its boards from the data provided' do
-        subject.boards.count.must_equal 1
+        subject.boards.count.must_equal 2
       end
 
       it 'sets its boards to an empty array if boards are not provided' do
@@ -69,7 +69,7 @@ describe Kanbanize::Project do
     end
 
     it 'returns Board objects belonging to that Project' do
-      subject.boards.first.name.must_equal 'Testers board'
+      subject.boards.first.name.must_equal 'Test'
     end
   end
 end
