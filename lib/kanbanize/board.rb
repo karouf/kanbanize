@@ -36,12 +36,24 @@ module Kanbanize
     end
     alias_method :column, :[]
 
+    def lane(name)
+      @lanes[name]
+    end
+
     private
     def initialize_structure
+      structure = @api.get_board_structure(@id)
+
       @columns = {}
-      @api.get_board_structure(@id)['columns'].each do |attributes|
+      structure['columns'].each do |attributes|
         column = Column.new(attributes)
         @columns[column.name] = column
+      end
+
+      @lanes = {}
+      structure['lanes'].each do |attributes|
+        lane = Lane.new(attributes)
+        @lanes[lane.name] = lane
       end
     end
   end

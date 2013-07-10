@@ -90,7 +90,7 @@ describe Kanbanize::Board do
               ]
       api = Minitest::Mock.new
       api.expect :get_all_tasks, tasks, [2]
-      api.expect :get_board_structure, {'columns' => []}, [2]
+      api.expect :get_board_structure, {'columns' => [], 'lanes' => []}, [2]
       board = Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'})
       board.tasks.first.title.must_equal "Write Api specs"
       board.tasks.first.title.must_equal "Write Api specs"
@@ -144,7 +144,7 @@ describe Kanbanize::Board do
       api = Minitest::Mock.new
       api.expect :get_all_tasks, tasks, [2]
       api.expect :get_all_tasks, refreshed_tasks, [2]
-      api.expect :get_board_structure, {'columns' => []}, [2]
+      api.expect :get_board_structure, {'columns' => [], 'lanes' => []}, [2]
       board = Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'})
       board.tasks.first.title.must_equal "Write Api specs"
       board.tasks!.first.title.must_equal "Write API specifications"
@@ -216,6 +216,24 @@ describe Kanbanize::Board do
       subject.column('inexistant').must_equal subject['inexistant']
       subject.column(0).must_equal subject[0]
       subject.column(60).must_equal subject[60]
+    end
+  end
+
+  describe '#lane' do
+    describe 'with a valid lane name' do
+      it 'returns a Lane object' do
+        subject.lane('Urgent').must_be_instance_of Kanbanize::Board::Lane
+      end
+
+      it 'returns the specified lane' do
+        subject.lane('Urgent').name.must_equal 'Urgent'
+      end
+    end
+
+    describe 'with an invalid lane name' do
+      it 'returns nil' do
+        subject['inexistant'].must_equal nil
+      end
     end
   end
 end
