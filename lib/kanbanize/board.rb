@@ -46,7 +46,7 @@ module Kanbanize
 
       @columns = {}
       structure['columns'].each do |attributes|
-        column = Column.new(attributes)
+        column = Column.new(self, attributes)
         @columns[column.name] = column
       end
 
