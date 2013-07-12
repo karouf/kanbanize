@@ -22,6 +22,8 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+Docs: http://rubydoc.info/github/karouf/kanbanize/frames
+
 ## Contributing
 
 1. Fork it
