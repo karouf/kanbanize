@@ -11,8 +11,8 @@ describe Kanbanize::Board::Cell do
 
   let(:api) { Kanbanize::API.new(KANBANIZE_API_KEY) }
   let(:board) { Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'}) }
-  let(:column) { Kanbanize::Board::Column.new(board, {'position' => '0', 'lcname' => 'Test column', 'description' => 'Column description', 'tasksperrow' => '3'}) }
-  let(:lane) { Kanbanize::Board::Lane.new({'lcname' => 'Test lane', 'description' => 'Lane description', 'color' => '#FFFFFF'}) }
+  let(:column) { board.column('En cours') }
+  let(:lane) { board.lane('Standard') }
   let(:cell) { Kanbanize::Board::Cell.new(column, lane) }
 
   it 'gives access to the column it belongs to' do
@@ -23,13 +23,17 @@ describe Kanbanize::Board::Cell do
     cell.must_respond_to :lane
   end
 
+  it 'gives access to its tasks' do
+    cell.must_respond_to :tasks
+  end
+
   describe '#column' do
     it 'returns a column' do
       cell.column.must_be_instance_of Kanbanize::Board::Column
     end
 
     it 'returns the column it belongs to' do
-      cell.column.name.must_equal 'Test column'
+      cell.column.name.must_equal 'En cours'
     end
   end
 
@@ -39,7 +43,18 @@ describe Kanbanize::Board::Cell do
     end
 
     it 'returns the lane it belongs to' do
-      cell.lane.name.must_equal 'Test lane'
+      cell.lane.name.must_equal 'Standard'
+    end
+  end
+
+  describe '#tasks' do
+    it 'returns an array of tasks' do
+      cell.tasks.must_be_instance_of Array
+      cell.tasks.first.must_be_instance_of Kanbanize::Task
+    end
+
+    it 'returns the tasks contained in the cell' do
+      cell.tasks.first.title.must_equal 'Write Api specs'
     end
   end
 end

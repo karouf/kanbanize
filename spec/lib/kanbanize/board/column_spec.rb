@@ -14,6 +14,10 @@ describe Kanbanize::Board::Column do
   let(:column) { board.column('En cours') }
   let(:lane) { board.lane('Urgent') }
 
+  it 'gives access to its parent board' do
+    column.must_respond_to :board
+  end
+
   it 'gives access to its name' do
     column.must_respond_to :name
   end
@@ -25,6 +29,16 @@ describe Kanbanize::Board::Column do
   it 'gives access to a specific cell' do
     column.must_respond_to :lane
     column.must_respond_to :[]
+  end
+
+  describe '#board' do
+    it 'returns a board' do
+      column.board.must_be_instance_of Kanbanize::Board
+    end
+
+    it 'returns the board the column belongs to' do
+      column.board.name.must_equal 'Test board'
+    end
   end
 
   describe '#name' do

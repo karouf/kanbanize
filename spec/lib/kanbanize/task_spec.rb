@@ -1,9 +1,20 @@
 require_relative '../../spec_helper'
 
 describe Kanbanize::Task do
+  before do
+    VCR.insert_cassette 'task', :record => :new_episodes
+  end
 
+  after do
+    VCR.eject_cassette
+  end
+
+  let(:api) { Kanbanize::API.new(KANBANIZE_API_KEY) }
+  let(:board) { Kanbanize::Board.new(api, {'id' => '2', 'name' => 'Test board'}) }
   let(:attributes) do
     { 'taskid'                  => '7',
+      'columnname'              => 'En cours',
+      'lanename'                => 'Standard',
       'title'                   => 'Write API specs',
       'position'                => '0',
       'type'                    => 'Feature request',
@@ -22,7 +33,7 @@ describe Kanbanize::Task do
     }
   end
 
-  subject { Kanbanize::Task.new(attributes) }
+  subject { Kanbanize::Task.new(board, attributes) }
 
   it 'gives access to its id' do
     subject.must_respond_to :id
@@ -30,6 +41,14 @@ describe Kanbanize::Task do
 
   it 'gives access to its title' do
     subject.must_respond_to :title
+  end
+
+  it 'gives access to its column' do
+    subject.must_respond_to :column
+  end
+
+  it 'gives access to its lane' do
+    subject.must_respond_to :lane
   end
 
   it 'gives access to its position' do
@@ -85,13 +104,21 @@ describe Kanbanize::Task do
   end
 
   describe '#initialize' do
-    describe 'with the only required attribute' do
+    describe 'with the only required attributes' do
       it 'sets the id from the attributes provided' do
-        Kanbanize::Task.new({'taskid' => '7'}).id.must_equal 7
+        Kanbanize::Task.new(board, {'taskid' => '7', 'columnname' => 'En cours', 'lanename' => 'Standard'}).id.must_equal 7
+      end
+
+      it 'sets the column from the attributes provided' do
+        Kanbanize::Task.new(board, {'taskid' => '7', 'columnname' => 'En cours', 'lanename' => 'Standard'}).column.name.must_equal 'En cours'
+      end
+
+      it 'sets the lane from the attributes provided' do
+        Kanbanize::Task.new(board, {'taskid' => '7', 'columnname' => 'En cours', 'lanename' => 'Standard'}).lane.name.must_equal 'Standard'
       end
 
       it 'sets all other attributes to nil' do
-        task = Kanbanize::Task.new({'taskid' => '7'})
+        task = Kanbanize::Task.new(board, {'taskid' => '7', 'columnname' => 'En cours', 'lanename' => 'Standard'})
         task.title.must_be_nil
         task.block_reason.must_be_nil
         task.type.must_be_nil
@@ -139,11 +166,11 @@ describe Kanbanize::Task do
 
       it 'sets the priority from the attributes provided' do
         attrs = attributes.merge({'priority' => 'Low'})
-        Kanbanize::Task.new(attrs).priority.must_equal :low
+        Kanbanize::Task.new(board, attrs).priority.must_equal :low
         attrs = attributes.merge({'priority' => 'Average'})
-        Kanbanize::Task.new(attrs).priority.must_equal :average
+        Kanbanize::Task.new(board, attrs).priority.must_equal :average
         attrs = attributes.merge({'priority' => 'High'})
-        Kanbanize::Task.new(attrs).priority.must_equal :high
+        Kanbanize::Task.new(board, attrs).priority.must_equal :high
       end
 
       it 'sets the size from the attributes provided' do
@@ -152,16 +179,16 @@ describe Kanbanize::Task do
 
       it 'sets the deadline from the attributes provided' do
         attrs = attributes.merge({'deadlineoriginalformat' => nil})
-        Kanbanize::Task.new(attrs).deadline.must_equal nil
+        Kanbanize::Task.new(board, attrs).deadline.must_equal nil
         attrs = attributes.merge({'deadlineoriginalformat' => '2013-12-31'})
-        Kanbanize::Task.new(attrs).deadline.must_equal Date.new(2013, 12, 31)
+        Kanbanize::Task.new(board, attrs).deadline.must_equal Date.new(2013, 12, 31)
       end
 
       it 'sets the tags from the attributes provided' do
         attrs = attributes.merge({'tags' => ''})
-        Kanbanize::Task.new(attrs).tags.must_equal []
+        Kanbanize::Task.new(board, attrs).tags.must_equal []
         attrs = attributes.merge({'tags' => 'list of tags'})
-        Kanbanize::Task.new(attrs).tags.must_equal ['list', 'of', 'tags']
+        Kanbanize::Task.new(board, attrs).tags.must_equal ['list', 'of', 'tags']
       end
 
       it 'sets the lead time from the attributes provided' do
@@ -170,15 +197,15 @@ describe Kanbanize::Task do
 
       it 'sets the block status from the attributes provided' do
         attrs = attributes.merge({'blocked' => '0'})
-        Kanbanize::Task.new(attrs).blocked?.must_equal false
+        Kanbanize::Task.new(board, attrs).blocked?.must_equal false
         attrs = attributes.merge({'blocked' => '1'})
-        Kanbanize::Task.new(attrs).blocked?.must_equal true
+        Kanbanize::Task.new(board, attrs).blocked?.must_equal true
       end
 
       it 'sets the block reason from the attributes provided' do
         subject.block_reason.must_equal nil
         attrs = attributes.merge({'blockedreason' => 'Some reason'})
-        Kanbanize::Task.new(attrs).block_reason.must_equal 'Some reason'
+        Kanbanize::Task.new(board, attrs).block_reason.must_equal 'Some reason'
       end
 
       it 'sets the logged time from the attributes provided' do
@@ -188,42 +215,50 @@ describe Kanbanize::Task do
 
     describe 'with invalid attributes' do
       it 'raises an ArgumentError if no id is provided' do
-        lambda{ Kanbanize::Task.new({'title' => 'Write Api specs'}) }.must_raise ArgumentError
+        lambda{ Kanbanize::Task.new(board, {'columnname' => 'En cours', 'lanename' => 'Standard'}) }.must_raise ArgumentError
+      end
+
+      it 'raises an ArgumentError if no column name is provided' do
+        lambda{ Kanbanize::Task.new(board, {'taskid' => '7', 'lanename' => 'Standard'}) }.must_raise ArgumentError
+      end
+
+      it 'raises an ArgumentError if no lane name is provided' do
+        lambda{ Kanbanize::Task.new(board, {'taskid' => '7', 'columnname' => 'En cours'}) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the id is not an integer' do
         attrs = attributes.merge({'taskid' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the priority is not "Low", "Average" or "High"' do
         attrs = attributes.merge({'priority' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the position is not an integer' do
         attrs = attributes.merge({'position' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if block status is neither 0 or 1' do
         attrs = attributes.merge({'blocked' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the lead time is not an integer' do
         attrs = attributes.merge({'leadtime' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the logged time is not an integer' do
         attrs = attributes.merge({'logedtime' => 'a'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
 
       it 'raises an ArgumentError if the deadline is in the wrong format' do
         attrs = attributes.merge({'deadlineoriginalformat' => '20131231'})
-        lambda { Kanbanize::Task.new(attrs) }.must_raise ArgumentError
+        lambda { Kanbanize::Task.new(board, attrs) }.must_raise ArgumentError
       end
     end
   end

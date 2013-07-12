@@ -1,7 +1,7 @@
 module Kanbanize
   class Board
     class Column
-      attr_reader :name, :position
+      attr_reader :name, :position, :board
 
       def initialize(board, attributes)
         @board = board

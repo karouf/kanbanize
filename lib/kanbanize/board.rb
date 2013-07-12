@@ -19,13 +19,13 @@ module Kanbanize
     end
 
     def tasks!
-      @tasks = @api.get_all_tasks(@id).map{|t| Task.new(t)}
+      @tasks = @api.get_all_tasks(@id).map{|t| Task.new(self, t)}
     end
 
     def version(name)
       tasks = @api.get_all_tasks(@id, :archive => true, :version => name)
       if tasks
-        return tasks['task'].map{|t| Task.new(t)}
+        return tasks['task'].map{|t| Task.new(self, t)}
       else
         return nil
       end

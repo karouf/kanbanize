@@ -3,12 +3,16 @@ module Kanbanize
 
     attr_reader :id, :title, :position, :type, :assignee, :description,
                 :color, :priority, :size, :deadline, :tags, :lead_time,
-                :block_reason, :logged_time
+                :block_reason, :logged_time, :column, :lane
 
     TASK_PRIORITIES = ['Low', 'Average', 'High']
 
-    def initialize (attributes)
+    def initialize (board, attributes)
+      @board = board
+
       set_id(attributes)
+      set_column(attributes)
+      set_lane(attributes)
 
       @title = attributes['title']
       @type = attributes['type']
@@ -77,6 +81,22 @@ module Kanbanize
 
     def check_integer(number)
       Integer(number) rescue (raise ArgumentError, 'Not an integer')
+    end
+
+    def set_column(attributes)
+      if attributes['columnname']
+        @column = @board.column(attributes['columnname'])
+      else
+        raise ArgumentError, 'Task column name not provided'
+      end
+    end
+
+    def set_lane(attributes)
+      if attributes['lanename']
+        @lane = @board.lane(attributes['lanename'])
+      else
+        raise ArgumentError, 'Task lane name not provided'
+      end
     end
   end
 end

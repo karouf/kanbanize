@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://kanbanize.com/index.php/api/kanbanize/get_board_structure/boardid/2/format/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Apikey:
+      - testapikey
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Via:
+      - 1.1 TMG
+      Connection:
+      - Keep-Alive
+      Proxy-Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 12 Jul 2013 08:18:33 GMT
+      Content-Type:
+      - application/json
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_csrf_token=5a7475c32f5d55ab4f28a0e343b9b2be; expires=Fri, 12-Jul-2013 16:18:33
+        GMT; path=/
+      - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2214b8743edc83deeed4740d5402d040c5%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A13%3A%2292.103.209.40%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A46%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+5.5%3B+Windows+98%29%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1373617113%3B%7De7fc4063092bd509ed67b5069c061681;
+        path=/
+    body:
+      encoding: US-ASCII
+      string: ! '{"columns":[{"position":"0","lcname":"Suivants","description":"","tasksperrow":"3"},{"position":"1","lcname":"En
+        cours","description":"Ce qui est en cours","tasksperrow":"3"},{"position":"3","lcname":"Fini","description":"","tasksperrow":"2"}],"lanes":[{"lcname":"Urgent","color":"#d99f9f","description":""},{"lcname":"Standard","color":"#FFFFFF","description":""},{"lcname":"Interne","color":"#FFFFFF","description":""}]}'
+    http_version: 
+  recorded_at: Fri, 12 Jul 2013 08:19:11 GMT
+recorded_with: VCR 2.5.0
