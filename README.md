@@ -1,5 +1,7 @@
 # Kanbanize
 
+[![Build Status](https://travis-ci.org/karouf/kanbanize.png?branch=master)](https://travis-ci.org/karouf/kanbanize)
+
 TODO: Write a gem description
 
 ## Installation
