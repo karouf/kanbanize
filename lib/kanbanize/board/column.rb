@@ -19,7 +19,11 @@ module Kanbanize
       alias_method :[], :lane
 
       def tasks
-        @tasks ||= @board.tasks.select{|t| t.column == self}
+        @tasks ||= tasks!
+      end
+
+      def tasks!
+        @tasks = @board.tasks!.select{|t| t.column == self}
       end
     end
   end
