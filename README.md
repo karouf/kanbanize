@@ -1,6 +1,6 @@
 # Kanbanize
 
-[![Build Status](https://travis-ci.org/karouf/kanbanize.png?branch=master)](https://travis-ci.org/karouf/kanbanize)[![Dependency Status](https://gemnasium.com/karouf/kanbanize.png)](https://gemnasium.com/karouf/kanbanize)
+[![Build Status](https://travis-ci.org/karouf/kanbanize.png?branch=master)](https://travis-ci.org/karouf/kanbanize) [![Dependency Status](https://gemnasium.com/karouf/kanbanize.png)](https://gemnasium.com/karouf/kanbanize) [![Code Climate](https://codeclimate.com/github/karouf/kanbanize.png)](https://codeclimate.com/github/karouf/kanbanize)
 
 TODO: Write a gem description
 
