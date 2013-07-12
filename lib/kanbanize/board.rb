@@ -52,7 +52,7 @@ module Kanbanize
 
       @lanes = {}
       structure['lanes'].each do |attributes|
-        lane = Lane.new(attributes)
+        lane = Lane.new(self, attributes)
         @lanes[lane.name] = lane
       end
     end
