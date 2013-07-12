@@ -9,7 +9,11 @@ module Kanbanize
       end
 
       def tasks
-        @board.tasks.select{|t| t.lane == self}
+        @tasks ||= tasks!
+      end
+
+      def tasks!
+        @board.tasks!.select{|t| t.lane == self}
       end
     end
   end
