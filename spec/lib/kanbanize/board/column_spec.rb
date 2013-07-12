@@ -31,6 +31,10 @@ describe Kanbanize::Board::Column do
     column.must_respond_to :[]
   end
 
+  it 'gives access to its tasks' do
+    column.must_respond_to :tasks
+  end
+
   describe '#board' do
     it 'returns a board' do
       column.board.must_be_instance_of Kanbanize::Board
@@ -67,6 +71,20 @@ describe Kanbanize::Board::Column do
   describe '#[]' do
     it 'behaves like #lane' do
       column[lane.name].must_equal column.lane(lane.name)
+    end
+  end
+
+  describe '#tasks' do
+    it 'returns an array of tasks' do
+      column.tasks.must_be_instance_of Array
+      column.tasks.first.must_be_instance_of Kanbanize::Task
+    end
+
+    it 'returns the tasks that are in this column' do
+      column.tasks.first.title.must_equal 'Write Api specs'
+      column.tasks.each do |task|
+        task.column.must_equal column
+      end
     end
   end
 end

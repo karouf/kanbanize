@@ -17,6 +17,10 @@ module Kanbanize
         Cell.new(self, @board.lane(name))
       end
       alias_method :[], :lane
+
+      def tasks
+        @tasks ||= @board.tasks.select{|t| t.column == self}
+      end
     end
   end
 end
