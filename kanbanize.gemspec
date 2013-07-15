@@ -25,4 +25,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'webmock', '>= 1.8.0', '< 1.12'
   gem.add_development_dependency 'vcr', '~> 2.5.0'
   gem.add_development_dependency 'yard', '~> 0.8.6.2'
+  gem.add_development_dependency 'redcarpet', '~> 3.0.0'
 end
