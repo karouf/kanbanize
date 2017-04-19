@@ -8,16 +8,16 @@ module Kanbanize
   class API
     include HTTParty
 
-    base_uri 'http://kanbanize.com/index.php/api/kanbanize'
-
     format :json
 
     # @return [String] the API key used for API calls
-    attr_reader :apikey
+    attr_reader :apikey, :base_uri
 
     # @param apikey [String] the API key to use to connect to the Kanbanize API
-    def initialize(apikey = nil )
-      set_apikey(apikey)
+    def initialize(subdomain, apikey)
+      @apikey = apikey
+      @subdomain = subdomain
+      @base_uri = "https://#{subdomain}.kanbanize.com/index.php/api/kanbanize"
       set_proxy
     end
 
@@ -31,11 +31,7 @@ module Kanbanize
     # @return [Hash] User infos
     #
     def login(email, pass)
-      hash = self.class.post("/login/email/#{uri_encode(email)}/pass/#{uri_encode(pass)}/format/json")
-
-      set_apikey(hash['apikey'])
-
-      return hash
+      self.class.post(base_uri + "/login/email/#{uri_encode(email)}/pass/#{uri_encode(pass)}/format/json")
     end
 
     # Get projects and corresponding boards
@@ -283,7 +279,7 @@ module Kanbanize
 
     private
     def post(uri)
-      self.class.post(uri + '/format/json', :headers => {'apikey' => @apikey}).parsed_response
+      self.class.post(base_uri + uri + '/format/json', :headers => {'apikey' => @apikey}).parsed_response
     end
 
     def set_proxy
@@ -299,10 +295,6 @@ module Kanbanize
 
     def uri_encode(string)
       URI.escape(string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
-    end
-
-    def set_apikey(apikey)
-      @apikey = apikey if apikey
     end
 
     def get_archived_tasks(board_id, options = {})
